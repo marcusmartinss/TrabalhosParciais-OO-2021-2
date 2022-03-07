@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Usuario {
@@ -6,9 +7,8 @@ public class Usuario {
 	private Plano plano;
 	private String email;
 	private String senha;
+	
 	private Scanner ler = new Scanner(System.in);// Para os metodos
-	private String temp;// Para verificar a senha
-	private int i;// Para criar os IDs
 	// Metodo Construtor de Usuario
 	public Usuario(long id, Plano plano, String email, String senha) {
 		super();
@@ -21,8 +21,8 @@ public class Usuario {
 	public long getId() {
 		return id;
 	}
-	public void setId(long id) {
-		this.id = i + 1;
+	public void setId(long i) {
+		this.id = i + 1; // Verificar se ID já existe aqui
 		i++;
 	}
 	public Plano getPlano() {
@@ -45,19 +45,36 @@ public class Usuario {
 	}
 	// Metodos
 	public void cadastraUsuario() {
-		System.out.print("Digite seu e-mail: ");
-		setEmail(ler.nextLine());
+		String tempSenha1, tempSenha2, tempEmail;
+		
+		do {
+			System.out.print("Digite seu e-mail: ");
+			tempEmail = ler.nextLine();			
+		} while( tempEmail.length() == 0 || tempEmail.contains("@") ); // Trabalhar condicionais de erro do email
+		
+		
 		do {// Verifica senha
 			System.out.print("Digite sua senha: ");
-			setSenha(ler.nextLine());
+			tempSenha1 = ler.nextLine();
 			System.out.print("Confirme a senha: ");
-			temp = ler.nextLine();
-			if(temp != this.senha) {
+			tempSenha2 = ler.nextLine();
+			if(tempSenha1 != tempSenha2) {
 				System.out.println("Senhas nao coincidem. Tente novamente\n");
 			}
-		}while(temp != this.senha);
+			else
+			{
+				if( tempSenha1.length() == 0 )
+				{
+					System.out.println("Senhas nulas. Tente novamente\n");
+				}				
+			}
+		}while( (tempSenha1 != tempSenha2) || (tempSenha1.length() == 0) );
+		
 		setId(id);
 		System.out.println("\nUsuario cadastrado com sucesso!");
-		System.out.println("Seu ID e: " + this.id);
+		System.out.println("Seu ID e: " + this.id); // Colocar ID aleatorio e verificar
+		
+		setSenha(tempSenha1);
+		setEmail(tempEmail);
 	}
 }
