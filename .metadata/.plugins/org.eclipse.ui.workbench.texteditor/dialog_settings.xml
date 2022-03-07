@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="tempSenha2"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="isNu"/>
 			<item value="temp2"/>
 			<item value="temp1"/>
 		</list>

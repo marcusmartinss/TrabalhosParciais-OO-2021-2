@@ -154,7 +154,7 @@ public class Usuario extends Pessoa {
 					break;
 				case '2':
 					System.out.print("Digite o novo plano: ");
-					tempPlano = ler.nextLine(); // Alterar para setPlano		
+					tempPlano = ler.nextLine(); // Alterar setPlano		
 					System.out.println("Plano alterado com sucesso.");
 					break;
 				case '3':
