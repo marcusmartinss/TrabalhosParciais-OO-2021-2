@@ -33,12 +33,12 @@ public class PitStop {
 	}
 	// Metodos
 	public void cadastraPitStop() {
-		System.out.println("Siga as informações para cadastrar o endereco do pitstop:");
+		System.out.println("\nSiga as informações para cadastrar o endereco do pitstop:");
 		setEndereco(endereco);
-		System.out.println("Digite a quantidade maxima de bicicletas que existirá nesse pitstop:");
+		System.out.println("\nDigite a quantidade maxima de bicicletas que existirá nesse pitstop:");
 		setQtdMaxBicicletas(ler.nextInt());
 		setQtdAtualBicicletas(0);
-		System.out.println("PitStop cadastrado com sucesso.");
+		System.out.println("\nPitStop cadastrado com sucesso.");
 	}
 	public void visualizaPitStop() {
 		System.out.println("Endereco do PitStop: \nCEP: " + this.endereco.getCEP() + "\nCidade: " + this.endereco.getCidade() + 
@@ -54,17 +54,18 @@ public class PitStop {
 		setEndereco(null);
 		setQtdAtualBicicletas(0);
 		setQtdMaxBicicletas(0);
+		System.out.println("\nPitStop deletado com sucesso.");
 	}
 	public void cadastraBicicleta() {// Cadastra uma bicicleta no PitStop, se for possivel
 		if(getQtdMaxBicicletas() > getQtdAtualBicicletas()) {
 			setQtdAtualBicicletas(getQtdAtualBicicletas()+1);
 		}else
-			System.out.println("O numero maximo de bicicletas foi atingido");
+			System.out.println("\nO numero maximo de bicicletas foi atingido.");
 	}
 	public void retiraBicicleta() {
 		if(getQtdAtualBicicletas() > 0) {
 			setQtdAtualBicicletas(getQtdAtualBicicletas() - 1);
 		}else
-			System.out.println("Nao existem bicicletas nesse pitstop.");
+			System.out.println("\nNao existem bicicletas nesse pitstop.");
 	}
 }
