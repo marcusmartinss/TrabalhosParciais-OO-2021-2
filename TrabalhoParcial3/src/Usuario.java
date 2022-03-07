@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Usuario {
+public class Usuario extends Pessoa {
 	// Atributos
 	private long id;
 	private Plano plano;
@@ -9,9 +9,12 @@ public class Usuario {
 	private String senha;
 	
 	private Scanner ler = new Scanner(System.in);// Para os metodos
+	private Random gerador = new Random();// Para gerar ID
+	private int totalUsuarios = 50;//Valor base para testagem
+	
 	// Metodo Construtor de Usuario
-	public Usuario(long id, Plano plano, String email, String senha) {
-		super();
+	public Usuario(long id, Plano plano, String email, String senha, String nome, String cpf, String telefone, Endereco endereco, String rg) {
+		super(nome, cpf, telefone, endereco, rg);
 		this.id = id;
 		this.plano = plano;
 		this.email = email;
@@ -21,9 +24,30 @@ public class Usuario {
 	public long getId() {
 		return id;
 	}
-	public void setId(long i) {
-		this.id = i + 1; // Verificar se ID já existe aqui
-		i++;
+	public void setId(long tempID, Usuario[] usuarios) {
+		int i;
+		boolean existe = false;
+		
+		if(tempID != 0) {
+			for(i = 0; i < totalUsuarios ; i++) {
+				if ( tempID == usuarios[i].id )
+				{
+					existe = true;
+					break;
+				}
+			}
+			if( existe ) {
+				System.out.println("	Este ID de usuario ja esta em uso");
+			}
+			else
+			{
+				this.id = tempID;			
+			}			
+		}
+		else
+		{
+			System.out.println("	Este nao eh um ID valido");
+		}
 	}
 	public Plano getPlano() {
 		return plano;
@@ -44,14 +68,37 @@ public class Usuario {
 		this.senha = senha;
 	}
 	// Metodos
-	public void cadastraUsuario() {
+	public void cadastraUsuario(Usuario[] usuarios) {
 		String tempSenha1, tempSenha2, tempEmail;
+		int i;
+		long tempID;
+		boolean  existe;
+		
+		do {
+			existe = false;
+			tempID = gerador.nextLong();
+			for(i = 0; i < totalUsuarios ; i++) {
+				if ( tempID == usuarios[i].id )
+				{
+					existe = true;
+					break;
+				}
+			}			
+		}while( existe || tempID == 0 );
 		
 		do {
 			System.out.print("Digite seu e-mail: ");
-			tempEmail = ler.nextLine();			
-		} while( tempEmail.length() == 0 || tempEmail.contains("@") ); // Trabalhar condicionais de erro do email
-		
+			tempEmail = ler.nextLine();		
+			if(tempEmail.length() == 0) {
+				System.out.println("	O e-mail inserido eh nulo.\n");
+			}
+			else
+			{
+				if( !tempEmail.contains("@") ) {
+					System.out.println("	Este e-mail nao possui um dominio.\n");
+				}
+			}
+		} while( tempEmail.length() == 0 || !tempEmail.contains("@") );
 		
 		do {// Verifica senha
 			System.out.print("Digite sua senha: ");
@@ -69,12 +116,63 @@ public class Usuario {
 				}				
 			}
 		}while( (tempSenha1 != tempSenha2) || (tempSenha1.length() == 0) );
-		
-		setId(id);
+
 		System.out.println("\nUsuario cadastrado com sucesso!");
-		System.out.println("Seu ID e: " + this.id); // Colocar ID aleatorio e verificar
+		System.out.println("Seu ID e: " + tempID); 
 		
+		setId(tempID, usuarios);
 		setSenha(tempSenha1);
 		setEmail(tempEmail);
+	}
+	public void editarUsuario() {
+		char opcao;
+		String tempEmail, tempPlano, tempSenha;
+		
+		System.out.println("\nO que deseja editar?");
+		System.out.println("\n1 - E-mail\n2 - Plano\n3 - Senha");
+		opcao = ler.next().charAt(0);
+		if( (int)opcao < 49 || (int)opcao > 51 ) {// Menu de escolha para o que editar dentro das infos editáveis
+			System.out.println("\nNumero invalido.");
+		}else {
+			switch(opcao) {
+				case '1':
+					do {
+						System.out.print("Digite o novo e-mail: ");
+						tempEmail = ler.nextLine();		
+						if(tempEmail.length() == 0) {
+							System.out.println("	O e-mail inserido eh nulo.\n");
+						}
+						else
+						{
+							if( !tempEmail.contains("@") ) {
+								System.out.println("	Este e-mail nao possui um dominio.\n");
+							}
+						}
+					} while( tempEmail.length() == 0 || !tempEmail.contains("@") );
+					this.setEmail(tempEmail);
+					System.out.println("E-mail alterado com sucesso.");
+					break;
+				case '2':
+					System.out.print("Digite o novo plano: ");
+					tempPlano = ler.nextLine(); // Alterar setPlano		
+					System.out.println("Plano alterado com sucesso.");
+					break;
+				case '3':
+					do {// Verifica senha
+						System.out.print("Digite a nova senha: ");
+						this.setSenha(ler.nextLine());
+						System.out.print("Confirme a senha: ");
+						tempSenha = ler.nextLine();
+						if(tempSenha != this.getSenha()) {
+							System.out.println("Senhas nao coincidem. Tente novamente\n");
+						}
+					}while(tempSenha != this.getSenha());
+					setSenha(tempSenha);
+					System.out.println("Senha alterada com sucesso.");
+					break;
+			}
+		}
+		System.out.println("\nPressione Enter para continuar...");
+		ler.nextLine();
 	}
 }
