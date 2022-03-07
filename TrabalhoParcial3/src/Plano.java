@@ -4,15 +4,15 @@ import java.util.Scanner;
 		// Atributos
 		private String tipo;
 		private String descricao;
-		private Aluguel aluguel;
+		private float valorMes;
 		private int qtdBicicletas;
 		private Scanner ler = new Scanner(System.in);// Para os metodos
 		private int n;
 		// Metodo Construtor de Plano
-		public Plano(String tipo, String descricao, Aluguel aluguel, int qtdBicicletas) {
+		public Plano(String tipo, String descricao, float valorMes, int qtdBicicletas) {
 			this.tipo = tipo;
 			this.descricao = descricao;
-			this.aluguel = aluguel;
+			this.valorMes = valorMes;
 			this.qtdBicicletas = qtdBicicletas;
 		}
 		// Getters e Setters
@@ -28,11 +28,11 @@ import java.util.Scanner;
 		public void setDescricao(String descricao) {
 			this.descricao = descricao;
 		}
-		public Aluguel getAluguel() {
-			return aluguel;
+		public float getValorMes() {
+			return valorMes;
 		}
-		public void setAluguel(Aluguel aluguel) {
-			this.aluguel = aluguel;
+		public void setValorMes(float valorMes) {
+			this.valorMes = valorMes;
 		}
 		public int getQtdBicicletas() {
 			return qtdBicicletas;
@@ -47,14 +47,14 @@ import java.util.Scanner;
 			System.out.println("E o que ele oferece? Digite a descricao dele.");
 			setDescricao(ler.nextLine());
 			System.out.println("E qual sera o valor da hora desse plano?");
-			this.aluguel.setValorHora(ler.nextFloat());
+			setValorMes(ler.nextFloat());
 			System.out.println("E quantas bicicletas por mes estarao disponiveis?");
 			setQtdBicicletas(ler.nextInt());
 			System.out.println("Plano cadastrado com sucesso!");
 		}
 		public void visualizaPlano() {
 			System.out.println("\nNome do plano: " + getTipo() + "\nDescricao: " + getDescricao() +
-								"\nValor hora: " + this.aluguel.getValorHora() + "\nQuantidade de Bicicletas: " + 
+								"\nValor mes: " + getValorMes() + "\nQuantidade de Bicicletas: " + 
 								getQtdBicicletas());
 
 			System.out.println("\nPressione Enter para continuar...");
@@ -76,8 +76,8 @@ import java.util.Scanner;
 					setDescricao(ler.nextLine());
 					System.out.println("\nDescricao alterada com sucesso.");
 				}else if(n == 3) {
-					System.out.println("\nDigite o novo valor da hora: ");
-					this.aluguel.setValorHora(ler.nextFloat());
+					System.out.println("\nDigite o novo valor do mes: ");
+					setValorMes(ler.nextFloat());
 					System.out.println("\nValor alterado com sucesso.");
 				}else if(n == 4) {
 					System.out.println("\nDigite a nova quantidade de bicicletas: ");
@@ -89,7 +89,7 @@ import java.util.Scanner;
 			ler.nextLine();
 		}
 		public void deletaPlano() {
-			setAluguel(null);
+			setValorMes(0);
 			setDescricao(null);
 			setQtdBicicletas(0);
 			setTipo(null);
