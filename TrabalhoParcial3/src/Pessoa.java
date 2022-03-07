@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Pessoa {
 	// Atributos
 	private String nome;
@@ -7,13 +6,12 @@ public class Pessoa {
 	private String telefone;
 	private Endereco endereco;// Para armazenar infos especificas do endereco
 	private String rg;
-	private Scanner ler = new Scanner(System.in);// Para realizar os metodos
 	private Usuario usuario;// Para armazenar infos especificas do usuario
 	private int n;// Para escolha do menu
+	private Scanner ler = new Scanner(System.in);// Para realizar os metodos
 	private String temp;// Armazenamento temporario de senha
 	// Metodo Construtor de Pessoa
 	public Pessoa(String nome, String cpf, String telefone, Endereco endereco, String rg) {
-		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;
@@ -59,7 +57,7 @@ public class Pessoa {
 	}
 	// Metodos
 	public void cadastraPessoa() {
-		System.out.print("Digite seu nome:");
+		System.out.print("\nDigite seu nome:");
 		setNome(ler.nextLine());
 		System.out.print("Digite seu CPF:");
 		setCpf(ler.nextLine());
@@ -81,11 +79,11 @@ public class Pessoa {
 		ler.nextLine();
 	}
 	public void editaPessoa() {
-		System.out.println("O que deseja editar?");
+		System.out.println("\nO que deseja editar?");
 		System.out.println("\n1 - Nome\n2 - Telefone\n3 - Endereco\n4 - Email\n5 - Senha");
 		n = ler.nextInt();
 		if(n < 1 || n > 5) {// Menu de escolha para o que editar dentro das infos editáveis
-			System.out.println("Numero invalido.");
+			System.out.println("\nNumero invalido.");
 		}else {
 			if(n == 1) {
 				System.out.print("Digite seu nome:");
@@ -112,12 +110,13 @@ public class Pessoa {
 						System.out.println("Senhas nao coincidem. Tente novamente\n");
 					}
 				}while(temp != usuario.getSenha());
-				System.out.println("Senha alterada com sucesso.");
+				System.out.println("\nSenha alterada com sucesso.");
 			}
 		}
 		System.out.println("\nPressione Enter para continuar...");
 		ler.nextLine();
-		}
+	}
+		
 	public void deletaPessoa() {// Reseta tudo do usuario
 		setCpf(null);
 		setNome(null);
@@ -125,7 +124,8 @@ public class Pessoa {
 		setRg(null);
 		setTelefone(null);
 		setUsuario(null);
-		System.out.println("Usuario deletado com sucesso.");
+		
+		System.out.println("\nUsuario deletado com sucesso.");
 		System.out.println("\nPressione Enter para continuar...");
 		ler.nextLine();
 	}

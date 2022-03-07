@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Endereco {
 	// Atributos
 	private long cep;
@@ -12,7 +11,6 @@ public class Endereco {
 	private char res;// Para confirmacao ao adicionar complemento
 	// Metodo Construtor de Endereco
 	public Endereco(long cep, String estado, String cidade, String logradouro, String complemento, int numero) {
-		super();
 		this.cep = cep;
 		this.estado = estado;
 		this.cidade = cidade;
@@ -59,13 +57,13 @@ public class Endereco {
 	}
 	// Metodos
 	public void cadastraEndereco() {
-		System.out.println("Digite seu CEP (apenas numeros):");
+		System.out.println("Digite o CEP (apenas numeros):");
 		setCEP(ler.nextLong());
-		System.out.println("Digite seu Estado:");
+		System.out.println("Digite o Estado:");
 		setEstado(ler.nextLine());
-		System.out.println("Digite sua cidade:");
+		System.out.println("Digite a cidade:");
 		setCidade(ler.nextLine());
-		System.out.println("Digite sua rua:");
+		System.out.println("Digite a rua:");
 		setLogradouro(ler.nextLine());
 		System.out.println("Digite o numero da casa ou apto:");
 		setNumero(ler.nextInt());
