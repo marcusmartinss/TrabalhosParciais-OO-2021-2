@@ -1,17 +1,22 @@
+import java.lang.reflect.Constructor;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Usuario {
+public class Usuario extends Pessoa {
 	// Atributos
 	private long id;
+	private Pessoa pessoa;
 	private Plano plano;
 	private String email;
 	private String senha;
 	
 	private Scanner ler = new Scanner(System.in);// Para os metodos
+	private Random gerador = new Random();// Para gerar ID
+	private int totalUsuarios = 50;//Valor base para testagem
 	// Metodo Construtor de Usuario
-	public Usuario(long id, Plano plano, String email, String senha) {
-		super();
+
+	public Usuario(long id, Plano plano, String email, String senha, String nome, String cpf, String telefone, Endereco endereco, String rg) {
+		super(nome, cpf, telefone, endereco, rg);
 		this.id = id;
 		this.plano = plano;
 		this.email = email;
@@ -44,12 +49,28 @@ public class Usuario {
 		this.senha = senha;
 	}
 	// Metodos
-	public void cadastraUsuario() {
+	public void cadastraUsuario(Usuario usuarios[]) {
 		String tempSenha1, tempSenha2, tempEmail;
+		int i;
+		long tempID;
+		boolean  existe;
+		
+		do {
+			existe = false;
+			tempID = gerador.nextLong();
+			for(i = 0; i < totalUsuarios ; i++) {
+				if ( tempID == usuarios[i].id )
+				{
+					existe = true;
+					break;
+				}
+			}			
+		}while( existe || tempID == 0 );
 		
 		do {
 			System.out.print("Digite seu e-mail: ");
-			tempEmail = ler.nextLine();			
+			tempEmail = ler.nextLine();		
+			if(tempEmail.length() == 0)
 		} while( tempEmail.length() == 0 || tempEmail.contains("@") ); // Trabalhar condicionais de erro do email
 		
 		
@@ -74,6 +95,7 @@ public class Usuario {
 		System.out.println("\nUsuario cadastrado com sucesso!");
 		System.out.println("Seu ID e: " + this.id); // Colocar ID aleatorio e verificar
 		
+		Usuario( tempID, plano, tempEmail, tempSenha1);
 		setSenha(tempSenha1);
 		setEmail(tempEmail);
 	}
