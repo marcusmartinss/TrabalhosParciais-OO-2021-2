@@ -126,10 +126,10 @@ public class Usuario extends Pessoa {
 	}
 	public void editarUsuario() {
 		char opcao;
-		String tempEmail, tempSenha;
+		String tempEmail, tempPlano, tempSenha;
 		
 		System.out.println("\nO que deseja editar?");
-		System.out.println("\n1 - E-mail\n2 Senha");
+		System.out.println("\n1 - E-mail\n2 - Plano\n3 - Senha");
 		opcao = ler.next().charAt(0);
 		if( (int)opcao < 49 || (int)opcao > 51 ) {// Menu de escolha para o que editar dentro das infos editáveis
 			System.out.println("\nNumero invalido.");
@@ -153,6 +153,17 @@ public class Usuario extends Pessoa {
 					System.out.println("E-mail alterado com sucesso.");
 					break;
 				case '2':
+					System.out.print("Digite o novo plano: ");
+					tempPlano = ler.nextLine(); // Alterar setPlano
+					tempPlano = tempPlano.toUpperCase();
+					switch(tempPlano) {
+						case "GOLD":
+							this.plano = p[0];
+							
+					}
+					System.out.println("Plano alterado com sucesso.");
+					break;
+				case '3':
 					do {// Verifica senha
 						System.out.print("Digite a nova senha: ");
 						this.setSenha(ler.nextLine());

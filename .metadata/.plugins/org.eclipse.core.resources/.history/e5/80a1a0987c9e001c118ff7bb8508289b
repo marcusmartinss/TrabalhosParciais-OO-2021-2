@@ -4,6 +4,7 @@ public class Main {
 	public static Scanner ler = new Scanner(System.in);
 
 	public static void main(String[] args) {
+		int n;
 		char r;
 		Plano p[] = new Plano[10];
 		
@@ -14,13 +15,13 @@ public class Main {
 		int qtdPlanos = 4;
 		
 		System.out.println("Bem vindo ao aluguel de bicicletas!");
-		System.out.println("\r---------------------------------------\r");
+		System.out.println("\n---------------------------------------\n");
 		System.out.println("Aqui sera possivel alugar bicicletas, contratar planos e muito mais" + 
 							", tudo diretamente do seu dispositivo!");
 		enter();
 		do{
-			r = menu();
-			switch(r) {
+			n = menu();
+			switch(n) {
 			case '1':
 				System.out.println("\n1");
 				break;
@@ -28,9 +29,9 @@ public class Main {
 				
 				System.out.println("----------Menu Planos----------");
 				System.out.println("1- Criar\n2- Visualizar\n3- Editar\n4- Deletar");
-				r = ler.next().charAt(0);
+				n = ler.next().charAt(0);
 				
-				switch(r) {
+				switch(n) {
 				
 				case '1':
 					p[qtdPlanos] = new Plano("" ,"" ,0 ,0 );
@@ -44,10 +45,10 @@ public class Main {
 							System.out.println(i+1 + "- " + p[i].getTipo());
 					}
 					System.out.println("\nDeseja checar qual plano?");
-					r = ler.next().charAt(0);
-					if(r > 0 && r < qtdPlanos+1) {// Checa dentro dos planos disponiveis
-						if(p[r-1] != null) {// Checa dentro dos planos cadastrados
-							p[r-1].visualizaPlano();
+					n = ler.nextInt();
+					if(n > 0 && n < qtdPlanos+1) {// Checa dentro dos planos disponiveis
+						if(p[n-1] != null) {// Checa dentro dos planos cadastrados
+							p[n-1].visualizaPlano();
 						}else
 							System.out.println("Opcao invalida.");
 					}else
@@ -68,25 +69,25 @@ public class Main {
 				System.out.println("\n4");
 				break;
 			case '5':
-				System.out.println("\nAte a proxima!\r");
+				System.out.println("\nAte a proxima!\n");
 				break;
 			default:
-				System.out.println("\nOpcao invalida.\r");
+				System.out.println("\nOpcao invalida.\n");
 			}
-			if(r != '5') {// Qualquer opcao diferente de 5, pedira o enter para continuar
+			if(n != '5') {// Qualquer opcao diferente de 5, pedira o enter para continuar
 				enter();
 				ler.nextLine();
 			}
-		}while(r != '5');
+		}while(n != '5');
 		
 		}
 
-	public static char menu() {
-		char r;
+	public static int menu() {
+		char n;
 		System.out.println("----------Menu----------");
 		System.out.println("1- Usuario\n2- Planos\n3- PitStops\n4- Alugar\n5- Encerrar");
-		r = ler.next().charAt(0);
-		return r;
+		n = ler.next().charAt(0);
+		return n;
 	}
 	
 	public static void enter() {

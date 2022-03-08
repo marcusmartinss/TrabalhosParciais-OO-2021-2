@@ -126,7 +126,7 @@ public class Usuario extends Pessoa {
 	}
 	public void editarUsuario() {
 		char opcao;
-		String tempEmail, tempSenha;
+		String tempEmail, tempPlano, tempSenha;
 		
 		System.out.println("\nO que deseja editar?");
 		System.out.println("\n1 - E-mail\n2 Senha");
