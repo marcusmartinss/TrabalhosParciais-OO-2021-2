@@ -65,8 +65,8 @@ public class Usuario extends Pessoa {
 		this.senha = senha;
 	}
 	// Metodos
-	public void cadastraUsuario(Usuario[] usuario) {
-		this.cadastraPessoa(usuario);
+	public void cadastraUsuario(Usuario[] usuarios) {
+		this.cadastraPessoa();
 		String tempSenha1, tempSenha2, tempEmail;
 		int i;
 		long tempID;
@@ -76,7 +76,7 @@ public class Usuario extends Pessoa {
 			existe = false;
 			tempID = gerador.nextLong();
 			for(i = 0; i < totalUsuarios ; i++) {
-				if ( tempID == usuario[i].id )
+				if ( tempID == usuarios[i].id )
 				{
 					existe = true;
 					break;
@@ -118,11 +118,11 @@ public class Usuario extends Pessoa {
 		System.out.println("\nUsuario cadastrado com sucesso!");
 		System.out.println("Seu ID e: " + tempID); 
 		
-		this.setId(tempID, usuario);
+		this.setId(tempID, usuarios);
 		this.setSenha(tempSenha1);
 		this.setEmail(tempEmail);
 	}
-	public void editaUsuario() {
+	public void editarUsuario() {
 		char opcao;
 		String tempEmail, tempSenha;
 		

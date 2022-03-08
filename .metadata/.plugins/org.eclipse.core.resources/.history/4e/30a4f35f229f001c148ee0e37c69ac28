@@ -19,10 +19,10 @@ public class Main {
 		do {
 			opcao1 = menu();
 			switch(opcao1) {
-				case '1': // Opcao Usuario
+				case '1':
 					opcao2 = menuUsuario();
 					switch(opcao2) {
-						case '1': // Cadastro de Usuario
+						case '1':
 							usuario[0].cadastraUsuario(usuario);
 							break;
 						case '2':
@@ -32,23 +32,19 @@ public class Main {
 									usuario[0].editaUsuario();
 									break;
 								case '2': // Informacoes pessoais
-									usuario[0].editaPessoa();
 									break;
 								default:
 									break;
 							}
 							break;
-						case '3': // Deleta Usuario
-							usuario[0].deletaUsuario();
-							usuario[0].deletaPessoa();
-						break;
+							
 					}
 					break;
-				case '2': // Opcao PitStops
+				case '2':
 					break;
-				case '3': // Opcao Alugar
+				case '3':
 					break;
-				case '4': // Opcao Encerrar
+				case '4':
 					
 					break;
 				default:

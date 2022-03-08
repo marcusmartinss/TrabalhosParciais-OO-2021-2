@@ -118,11 +118,11 @@ public class Usuario extends Pessoa {
 		System.out.println("\nUsuario cadastrado com sucesso!");
 		System.out.println("Seu ID e: " + tempID); 
 		
-		this.setId(tempID, usuario);
+		this.setId(tempID, usuarios);
 		this.setSenha(tempSenha1);
 		this.setEmail(tempEmail);
 	}
-	public void editaUsuario() {
+	public void editarUsuario() {
 		char opcao;
 		String tempEmail, tempSenha;
 		

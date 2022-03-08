@@ -52,7 +52,7 @@ public abstract class Pessoa {
 		this.rg = rg;
 	}
 	// Metodos
-	public void cadastraPessoa(Usuario[] usuario) {
+	public void cadastraPessoa() {
 		System.out.print("\nDigite seu nome:");
 		setNome(ler.nextLine());
 		System.out.print("Digite seu CPF:");

@@ -122,7 +122,7 @@ public class Usuario extends Pessoa {
 		this.setSenha(tempSenha1);
 		this.setEmail(tempEmail);
 	}
-	public void editaUsuario() {
+	public void editarUsuario() {
 		char opcao;
 		String tempEmail, tempSenha;
 		
