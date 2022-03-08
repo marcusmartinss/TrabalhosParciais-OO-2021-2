@@ -70,7 +70,7 @@ public abstract class Pessoa {
 		System.out.println("Nome: " + getNome() + "\nCPF: " + getCpf() + "\nTelefone: " + getTelefone() + "\nEndereco - \nCEP: " + this.endereco.getCEP() + 
 							"\nCidade: " + this.endereco.getCidade() + "\nComplemento: " + this.endereco.getComplemento() + "\nEstado: " + this.endereco.getEstado() +
 							"\nRua: " + this.endereco.getLogradouro() + "\nNumero: " + this.endereco.getNumero()+ "\nRG: " + getRg() + "\nEmail: " + this.usuario.getEmail()
-							+ "\nID: " + this.usuario.getId() + "\nPlano atual: " + this.usuario.getPlano());// Printa todas as infos da Pessoa
+							+ "\nID: " + this.usuario.getId() );// Printa todas as infos da Pessoa
 		System.out.println("\nPressione Enter para continuar...");
 		ler.next();
 	}

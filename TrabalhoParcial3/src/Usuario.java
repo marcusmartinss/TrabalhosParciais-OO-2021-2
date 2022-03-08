@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Usuario extends Pessoa {
 	// Atributos
 	private long id;
-	private Plano plano;
 	private String email;
 	private String senha;
 	
@@ -13,10 +12,14 @@ public class Usuario extends Pessoa {
 	private int totalUsuarios = 50;//Valor base para testagem
 	
 	// Metodo Construtor de Usuario
-	public Usuario(long id, Plano plano, String email, String senha, String nome, String cpf, String telefone, Endereco endereco, String rg) {
+	public Usuario(long id, String email, String senha, String nome, String cpf, String telefone, Endereco endereco, String rg) {
 		super(nome, cpf, telefone, endereco, rg);
+		this.setNome(nome);
+		this.setCpf(cpf);
+		this.setTelefone(telefone);
+		this.setEndereco(endereco);
+		this.setRg(rg);
 		this.id = id;
-		this.plano = plano;
 		this.email = email;
 		this.senha = senha;
 	}
@@ -46,14 +49,8 @@ public class Usuario extends Pessoa {
 		}
 		else
 		{
-			System.out.println("	Este nao eh um ID valido");
+			this.id = tempID;
 		}
-	}
-	public Plano getPlano() {
-		return plano;
-	}
-	public void setPlano(Plano plano) {
-		this.plano = plano;
 	}
 	public String getEmail() {
 		return email;
@@ -169,5 +166,11 @@ public class Usuario extends Pessoa {
 		}
 		System.out.println("\nPressione Enter para continuar...");
 		ler.nextLine();
+	}
+	public void deletaUsuario() {
+		this.deletaPessoa();
+		this.setId(0, null);
+		this.setEmail(null);
+		this.setSenha(null);
 	}
 }
