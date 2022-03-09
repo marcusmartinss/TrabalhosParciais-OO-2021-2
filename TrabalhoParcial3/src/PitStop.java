@@ -42,13 +42,14 @@ public class PitStop {
 	}
 	public void visualizaPitStop() {
 		System.out.println("Endereco do PitStop: \nCEP: " + this.endereco.getCEP() + "\nCidade: " + this.endereco.getCidade() + 
-							"\nComplemento: " + this.endereco.getComplemento() + "\nEstado: " + this.endereco.getEstado() + 
-							"\nRua: " + this.endereco.getLogradouro() + "\nNumero: " + this.endereco.getNumero() + 
-							"\nQuantidade Maxima de Bicicletas: " + this.qtdMaxBicicletas + "\nQuantidade Atual de Bicicletas: "
-							+ this.qtdAtualBicicletas);
+						   "\nComplemento: " + this.endereco.getComplemento() + "\nEstado: " + this.endereco.getEstado() + 
+						   "\nRua: " + this.endereco.getLogradouro() + "\nNumero: " + this.endereco.getNumero() + 
+						   "\nQuantidade Maxima de Bicicletas: " + this.qtdMaxBicicletas + "\nQuantidade Atual de Bicicletas: "
+						   + this.qtdAtualBicicletas);
 	}
 	public void buscaPitStop() {
 		this.endereco.getCidade();
+		
 	}
 	public void deletaPitStop() {
 		setEndereco(null);

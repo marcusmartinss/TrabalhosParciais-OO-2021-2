@@ -13,11 +13,10 @@ public abstract class Pessoa {
 	private Scanner ler = new Scanner(System.in);// Para realizar os metodos
 	private String temp;// Armazenamento temporario de senha
 	// Metodo Construtor de Pessoa
-	public Pessoa(String nome, String cpf, String telefone, Endereco endereco, String rg) {
+	public Pessoa(String nome, String cpf, String telefone, String rg) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;
-		this.endereco = endereco;
 		this.rg = rg;
 	}
 	// Getters e Setters

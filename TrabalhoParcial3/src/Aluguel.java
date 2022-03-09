@@ -5,9 +5,8 @@ public class Aluguel {
 	private String horaRetirada;
 	private String horaDevolucao;
 	// Metodo Construtor de Aluguel
-	public Aluguel(float valorHora, int qtdDisponivelBicicletas, String horaRetirada, String horaDevolucao) {
-		super();
-		this.valorHora = valorHora;
+	public Aluguel(float d, int qtdDisponivelBicicletas, String horaRetirada, String horaDevolucao) {
+		this.valorHora = d;
 		this.qtdDisponivelBicicletas = qtdDisponivelBicicletas;
 		this.horaRetirada = horaRetirada;
 		this.horaDevolucao = horaDevolucao;
