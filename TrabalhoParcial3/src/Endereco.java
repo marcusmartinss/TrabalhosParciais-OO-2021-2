@@ -1,59 +1,59 @@
 import java.util.Scanner;
-public class Endereco {
+public class Endereco{
 	// Atributos
-	private long cep;
-	private String estado;
-	private String cidade;
-	private String logradouro;
-	private String complemento;
-	private int numero;
+	protected static long cep;
+	protected static String estado;
+	protected static String cidade;
+	protected static String logradouro;
+	protected static String complemento;
+	protected static int numero;
 	private Scanner ler = new Scanner(System.in);// Para os metodos
 	private char res;// Para confirmacao ao adicionar complemento
 	// Metodo Construtor de Endereco
 	public Endereco(long cep, String estado, String cidade, String logradouro, String complemento, int numero) {
-		this.cep = cep;
-		this.estado = estado;
-		this.cidade = cidade;
-		this.logradouro = logradouro;
-		this.complemento = complemento;
-		this.numero = numero;
+		Endereco.cep = cep;
+		Endereco.estado = estado;
+		Endereco.cidade = cidade;
+		Endereco.logradouro = logradouro;
+		Endereco.complemento = complemento;
+		Endereco.numero = numero;
 	}
 	// Getters e Setters 
 	public long getCEP() {
 		return cep;
 	}
 	public void setCEP(long cep) {
-		this.cep = cep;
+		Endereco.cep = cep;
 	}
 	public String getEstado() {
 		return estado;
 	}
 	public void setEstado(String estado) {
-		this.estado = estado;
+		Endereco.estado = estado;
 	}
 	public String getCidade() {
 		return cidade;
 	}
 	public void setCidade(String cidade) {
-		this.cidade = cidade;
+		Endereco.cidade = cidade;
 	}
 	public String getLogradouro() {
 		return logradouro;
 	}
 	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+		Endereco.logradouro = logradouro;
 	}
 	public String getComplemento() {
 		return complemento;
 	}
 	public void setComplemento(String complemento) {
-		this.complemento = complemento;
+		Endereco.complemento = complemento;
 	}
 	public int getNumero() {
 		return numero;
 	}
 	public void setNumero(int numero) {
-		this.numero = numero;
+		Endereco.numero = numero;
 	}
 	// Metodos
 	public void cadastraEndereco() {

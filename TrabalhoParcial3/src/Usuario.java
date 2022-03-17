@@ -1,12 +1,11 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Usuario extends Pessoa {
+public class Usuario extends Pessoa{
 	// Atributos
 	private long id;
 	private String email;
 	private String senha;
-	
 	private Scanner ler = new Scanner(System.in);// Para os metodos
 	private Random gerador = new Random();// Para gerar ID
 	private int totalUsuarios = 50;//Valor base para testagem

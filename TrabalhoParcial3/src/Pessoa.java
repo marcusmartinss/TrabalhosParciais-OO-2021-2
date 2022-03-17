@@ -1,7 +1,6 @@
-
 import java.util.Scanner;
 
-public abstract class Pessoa {
+public abstract class Pessoa extends Endereco{
 	// Atributos
 	private String nome;
 	private String cpf;
@@ -9,11 +8,11 @@ public abstract class Pessoa {
 	private Endereco endereco;// Para armazenar infos especificas do endereco
 	private String rg;
 	private Usuario usuario;// Para armazenar infos especificas do usuario
-	
 	private Scanner ler = new Scanner(System.in);// Para realizar os metodos
 	private String temp;// Armazenamento temporario de senha
 	// Metodo Construtor de Pessoa
-	public Pessoa(String nome, String cpf, String telefone, String rg) {
+	public Pessoa(String nome, String cpf, String telefone, String rg){
+		super(cep, estado, cidade, logradouro, complemento, numero);
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;
