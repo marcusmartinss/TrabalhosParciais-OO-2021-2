@@ -1,132 +1,107 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
 	public static Scanner ler = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		// Declaracao de constantes de teste
-		final int qtdUsuarios = 50;
-		final int qtdBicicletas = 100;
-		final int qtdPitStops = 20;
 		// Variaveis de teste
-		int res;
+		int ID, indexLog = -1;
 		int posUsuario = -1, i;
 		char opcao1, opcao2, opcao3;
 		boolean existe;
-		String tempEmail1, tempEmail2; 
-		String tempSenha1, tempSenha2;
+		String tempEmail, emailLog; 
+		String tempSenha, senhaLog;
 		// Declaracao de objetos vetorizados
-		Usuario[] usuario = new Usuario[qtdUsuarios];
-		Bicicleta[] bicicletas = new Bicicleta[qtdBicicletas];
-		PitStop[] pitStops = new PitStop[qtdPitStops];
-		Aluguel aluguel = new Aluguel(1.5f, 3, "15:30", "18:45");
+		ArrayList<Bicicleta> bicicletas = new ArrayList<>();
+		ArrayList<Usuario> usuarios = new ArrayList<>();
+		ArrayList<PitStop> pitstops = new ArrayList<>();
+		ArrayList<Aluguel> aluguels = new ArrayList<>();
+		
 		
 		// Menus
 		do {
+			int n = usuarios.size();
 			opcao1 = menu();
 			switch(opcao1) {
 				case '1': // Opcao Usuario
 					opcao2 = menuUsuario();
-					switch(opcao2) {
-					case '1': // Opcao Usuario
-	                    opcao2 = menuUsuario();
 	                    switch(opcao2) {
 	                        case '1': // Login de Usuario
+	                        	indexLog = -1;
+	                        	System.out.print("Digite seu e-mail:");
 	                        	ler.nextLine();
-	                            System.out.print("Email: ");
-	                            tempEmail2 = ler.nextLine();
-	                            System.out.print("Senha: ");
-	                            tempSenha2 = ler.nextLine();
-	                            existe = false;
-	                            for(i=0; i<=posUsuario; i++) {
-	                            	if(usuario[i] != null) {
-		                                tempEmail1 = usuario[i].getEmail();
-		                                tempSenha1 = usuario[i].getSenha();
-		                                if(tempSenha1.equals(tempSenha2) && tempEmail1.equals(tempEmail2)) {
-		                                    existe = true;
-		                                    break;
-		                                }
-	                            	}
+	                        	tempEmail = ler.nextLine();
+	                        	System.out.print("Digite sua senha:");
+	                        	tempSenha = ler.nextLine();
+	                            for (i=0; i<n; i++) {
+	                              Usuario usuario = usuarios.get(i);
+	                              if(usuario.getEmail().equals(tempEmail) && usuario.getSenha().equals(tempSenha)) {
+	                            	  emailLog = tempEmail;
+	                            	  senhaLog = tempSenha;
+	                            	  indexLog = i;
+	                            	  System.out.println("Logado com sucesso!");
+	                              }
 	                            }
-	                            if(existe) {
-	                                posUsuario = i;
-	                                System.out.println("Login realizado com sucesso.");
-	                            }
-	                            else
-	                            {
-	                                System.out.println("Os dados nao coincidem.");
-	                            }
-	                            break;
+	                            if(indexLog == -1)
+	                            	System.out.println("Nao foi possivel realizar o login, verifique seu e-mail e senha.");
+	                        	break;
 	                        case '2': // Cadastro de Usuario
-	                        	for(i=0; i<=posUsuario; i++) {
-	                            	if(usuario[i] == null) {
-	                            		usuario[i] = new Usuario(0, null, null, null, null, null, null);
-	                            		usuario[i].cadastraUsuario(usuario);
-	                            		posUsuario++;
-	                            		break;
-	                            	}
-	                            }
-	                            
+	                        	Usuario usuario = new Usuario(null, null, null, null, null, null, null);
+	                        	usuario.cadastraUsuario(null);
+	                        	usuarios.add(usuario);
+	                        	System.out.print("Seu usuario eh: ");
+	                        	posUsuario++;
+	                        	usuario.setId(usuarios.get(posUsuario).toString());
+	                        	System.out.println(usuarios.get(posUsuario).getId());
 	                            break;
 	                        case '3':
-	                            if(posUsuario < 0) {
-	                                System.out.println("Voce nao esta logado. Faca o Login.");
-	                            }
-	                            else {
-	                            	for(i=0; i<=posUsuario; i++) {
-	                                	if(usuario[i] != null) 
-	                                		System.out.println(i+1 + "- " + usuario[i].getNome());
-	                                }
-	                            	do {
-	                            		System.out.println("\nDeseja editar qual usuario?");
-	                            		res = ler.nextInt();
-	                            	}while(res < 1 || res > posUsuario+1);
-	                                opcao3 = menuEditaUsuario();
-	                                switch (opcao3) {
-	                                case '1': // Informacoes de Usuario
-	                                    usuario[res-1].editaUsuario();
-	                                    break;
-	                                case '2': // Informacoes pessoais
-	                                    usuario[res-1].editaPessoa();
-	                                    break;
-	                                default:
-	                                    break;
-	                                }                        
-	                            }
+	                        	if(indexLog == -1) {
+	                        		System.out.println("Faça o Login primeiro.");
+	                        	}else {
+	                        		opcao3 = menuEditaUsuario();
+	                        		switch(opcao3) {
+	                        		case '1':
+	                        			usuarios.get(indexLog).editaUsuario();
+	                        			break;
+	                        		case '2':
+	                        			usuarios.get(indexLog).editaPessoa();
+	                        			break;
+	                        		default:
+	                        			break;
+	                        		}
+	                        	}
 	                            break;
 	                        case '4': // Deleta Usuario
-	                        	for(i=0; i<=posUsuario; i++) {
-	                            	if(usuario[i] != null) 
-	                            		System.out.println(i+1 + "- " + usuario[i].getNome());
-	                            }
-	                        	do {
-	                        		System.out.println("\nDeseja deletar qual usuario?");
-	                        		res = ler.nextInt();
-	                        	}while(res < 1 || res > posUsuario+1);
-	                            usuario[res-1].deletaUsuario();
-	                        break;
-	                    }
-					break;
+	                        	if(indexLog == -1) {
+	                        		System.out.println("Faça o Login primeiro.");
+	                        	}else{
+	                        		usuarios.remove(indexLog);
+	                        		System.out.println("Usuario deletado com sucesso");
+	                        			break;
+	                        		}
+	                        	}
+	                        	break;
 				case '2': // Opcao PitStops
 					opcao2 = menuPitStop();//1Cadastrar 2Deletar 3Visualizar 4Buscar 5Cadastra Bici 6Retirar Bici
 					switch (opcao2) {
 						case '1':
-							pitStops[0].cadastraBicicleta();
+							
 							break;
 						case '2':
-							pitStops[0].deletaPitStop();
+							
 							break;
 						case '3':
-							pitStops[0].visualizaPitStop();
+							
 							break;
 						case '4':
-							pitStops[0].buscaPitStop();
+							
 							break;
 						case '5':
-							pitStops[0].cadastraBicicleta();
+							
 							break;
 						case '6':
-							pitStops[0].retiraBicicleta();
+							
 							break;
 						default:
 							break;
@@ -136,10 +111,10 @@ public class Main {
 					opcao2 = menuAluguel();
 					switch (opcao2) {
 						case '1':
-							aluguel.alugar();
+							
 							break;
 						case '2':
-							aluguel.devolver();
+							
 							break;
 						default:
 							break;
@@ -147,13 +122,13 @@ public class Main {
 					
 					break;
 				case '4': // Opcao Encerrar
+					System.out.println("Ate a proxima!");
 					break;
 				default:
 					System.out.println("Opcao invalida! Tente novamente.");
 					enter();
 					break;
 				}
-			}
 		} while( opcao1 != '4' );
 		
 	}
@@ -174,7 +149,7 @@ public class Main {
 	public static char menuUsuario() {
 		char opcao;
 		System.out.println("------Menu-Usuario------");
-		System.out.println("1- Cadastrar\n2- Editar\n3- Alugar\n4- Encerrar");
+		System.out.println("1- Login\n2- Cadastrar\n3- Editar\n4- Deletar");
 		opcao = ler.next().charAt(0);
 		return opcao;
 	}

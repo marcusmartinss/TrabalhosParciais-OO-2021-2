@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Usuario extends Pessoa{
 	// Atributos
-	private long id;
+	private String id;
 	private String email;
 	private String senha;
 	private Scanner ler = new Scanner(System.in);// Para os metodos
@@ -11,7 +12,7 @@ public class Usuario extends Pessoa{
 	private int totalUsuarios = 50;//Valor base para testagem
 	
 	// Metodo Construtor de Usuario
-	public Usuario(long id, String email, String senha, String nome, String cpf, String telefone, String rg) {
+	public Usuario(String id, String email, String senha, String nome, String cpf, String telefone, String rg) {
 		super(nome, cpf, telefone, rg);
 		this.setNome(nome);
 		this.setCpf(cpf);
@@ -22,33 +23,11 @@ public class Usuario extends Pessoa{
 		this.senha = senha;
 	}
 	// Getters e Setters
-	public long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(long tempID, Usuario[] usuarios) {
-		int i;
-		boolean existe = false;
-		
-		if(tempID != 0) {
-			for(i = 0; i < totalUsuarios ; i++) {
-				if ( tempID == usuarios[i].id )
-				{
-					existe = true;
-					break;
-				}
-			}
-			if( existe ) {
-				System.out.println("	Este ID de usuario ja esta em uso");
-			}
-			else
-			{
-				this.id = tempID;			
-			}			
-		}
-		else
-		{
-			this.id = tempID;
-		}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getEmail() {
 		return email;
@@ -71,18 +50,6 @@ public class Usuario extends Pessoa{
 		boolean  existe;
 		
 		do {
-			existe = false;
-			tempID = gerador.nextLong();
-			for(i = 0; i < totalUsuarios ; i++) {
-				if ( tempID == usuario[i].id )
-				{
-					existe = true;
-					break;
-				}
-			}			
-		}while( existe || tempID == 0 );
-		
-		do {
 			System.out.print("Digite seu e-mail: ");
 			tempEmail = ler.nextLine();		
 			if(tempEmail.length() == 0) {
@@ -101,7 +68,7 @@ public class Usuario extends Pessoa{
 			tempSenha1 = ler.nextLine();
 			System.out.print("Confirme a senha: ");
 			tempSenha2 = ler.nextLine();
-			if(tempSenha1 != tempSenha2) {
+			if(!tempSenha1.equals(tempSenha2)) {
 				System.out.println("Senhas nao coincidem. Tente novamente\n");
 			}
 			else
@@ -111,12 +78,10 @@ public class Usuario extends Pessoa{
 					System.out.println("Senhas nulas. Tente novamente\n");
 				}				
 			}
-		}while( (tempSenha1 != tempSenha2) || (tempSenha1.length() == 0) );
-
-		System.out.println("\nUsuario cadastrado com sucesso!");
-		System.out.println("Seu ID e: " + tempID); 
+		}while( (!tempSenha1.equals(tempSenha2)) || (tempSenha1.length() == 0) );
 		
-		this.setId(tempID, usuario);
+		System.out.println("\nUsuario cadastrado com sucesso!");
+		System.out.print("Seu usuario eh: ");
 		this.setSenha(tempSenha1);
 		this.setEmail(tempEmail);
 	}
@@ -125,7 +90,7 @@ public class Usuario extends Pessoa{
 		String tempEmail, tempSenha;
 		
 		System.out.println("\nO que deseja editar?");
-		System.out.println("\n1 - E-mail\n2 Senha");
+		System.out.println("\n1- E-mail\n2- Senha");
 		opcao = ler.next().charAt(0);
 		if( (int)opcao < 49 || (int)opcao > 51 ) {// Menu de escolha para o que editar dentro das infos editáveis
 			System.out.println("\nNumero invalido.");
@@ -134,6 +99,7 @@ public class Usuario extends Pessoa{
 				case '1':
 					do {
 						System.out.print("Digite o novo e-mail: ");
+						ler.nextLine();
 						tempEmail = ler.nextLine();		
 						if(tempEmail.length() == 0) {
 							System.out.println("	O e-mail inserido eh nulo.\n");
@@ -151,13 +117,14 @@ public class Usuario extends Pessoa{
 				case '2':
 					do {// Verifica senha
 						System.out.print("Digite a nova senha: ");
+						ler.nextLine();
 						this.setSenha(ler.nextLine());
 						System.out.print("Confirme a senha: ");
 						tempSenha = ler.nextLine();
-						if(tempSenha != this.getSenha()) {
+						if(!tempSenha.equals(this.getSenha())) {
 							System.out.println("Senhas nao coincidem. Tente novamente\n");
 						}
-					}while(tempSenha != this.getSenha());
+					}while(!tempSenha.equals(this.getSenha()));
 					setSenha(tempSenha);
 					System.out.println("Senha alterada com sucesso.");
 					break;
@@ -165,11 +132,5 @@ public class Usuario extends Pessoa{
 		}
 		System.out.println("\nPressione Enter para continuar...");
 		ler.nextLine();
-	}
-	public void deletaUsuario() {
-		this.deletaPessoa();
-		this.setId(0, null);
-		this.setEmail(null);
-		this.setSenha(null);
 	}
 }

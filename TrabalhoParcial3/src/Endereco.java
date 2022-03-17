@@ -57,22 +57,24 @@ public class Endereco{
 	}
 	// Metodos
 	public void cadastraEndereco() {
-		System.out.println("Digite o CEP (apenas numeros):");
+		System.out.print("Digite o CEP (apenas numeros):");
 		setCEP(ler.nextLong());
-		System.out.println("Digite o Estado:");
+		ler.nextLine();
+		System.out.print("Digite o Estado:");
 		setEstado(ler.nextLine());
-		System.out.println("Digite a cidade:");
+		System.out.print("Digite a cidade:");
 		setCidade(ler.nextLine());
-		System.out.println("Digite a rua:");
+		System.out.print("Digite a rua:");
 		setLogradouro(ler.nextLine());
-		System.out.println("Digite o numero da casa ou apto:");
+		System.out.print("Digite o numero da casa ou apto:");
 		setNumero(ler.nextInt());
 		do {
-		System.out.println("Deseja adicionar complemento?(S/N)");
+		System.out.print("Deseja adicionar complemento?(S/N):");
 		res = ler.next().charAt(0);
 		}while(res != 'S' && res != 'N');
 		if(res == 'S') {
-			System.out.println("Digite o complemento:");
+			System.out.print("Digite o complemento:");
+			ler.nextLine();
 			setComplemento(ler.nextLine());
 		}
 	}
