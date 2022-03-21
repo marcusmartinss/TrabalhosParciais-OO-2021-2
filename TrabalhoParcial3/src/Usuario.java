@@ -12,8 +12,8 @@ public class Usuario extends Pessoa{
 	private int totalUsuarios = 50;//Valor base para testagem
 	
 	// Metodo Construtor de Usuario
-	public Usuario(String id, String email, String senha, String nome, String cpf, String telefone, String rg) {
-		super(nome, cpf, telefone, rg);
+	public Usuario(String id, String email, String senha, String nome, String cpf, String telefone, String rg, long cep, String estado, String cidade, String logradouro, String complemento, int numero) {
+		super(nome, cpf, telefone, rg, cep, estado, cidade, logradouro, complemento, numero);
 		this.setNome(nome);
 		this.setCpf(cpf);
 		this.setTelefone(telefone);
@@ -81,7 +81,6 @@ public class Usuario extends Pessoa{
 		}while( (!tempSenha1.equals(tempSenha2)) || (tempSenha1.length() == 0) );
 		
 		System.out.println("\nUsuario cadastrado com sucesso!");
-		System.out.print("Seu usuario eh: ");
 		this.setSenha(tempSenha1);
 		this.setEmail(tempEmail);
 	}

@@ -1,13 +1,14 @@
 import java.util.Scanner;
 
-public class PitStop {
+public class PitStop extends Endereco{
 	// Atributos
 	private Endereco endereco;
 	private int qtdMaxBicicletas;
 	private int qtdAtualBicicletas;
 	private Scanner ler = new Scanner(System.in);// Para os metodos
 	// Metodo Construtor de PitStop
-	public PitStop(Endereco endereco, int qtdMaxBicicletas, int qtdAtualBicicletas) {
+	public PitStop(Endereco endereco, int qtdMaxBicicletas, int qtdAtualBicicletas, long cep, String estado, String cidade, String logradouro, String complemento, int numero) {
+		super(cep, estado, cidade, logradouro, complemento, numero);
 		this.endereco = endereco;
 		this.qtdMaxBicicletas = qtdMaxBicicletas;
 		this.qtdAtualBicicletas = qtdAtualBicicletas;
@@ -17,7 +18,7 @@ public class PitStop {
 		return endereco;
 	}
 	public void setEndereco(Endereco endereco) {
-		endereco.cadastraEndereco();
+		this.endereco = endereco;
 	}
 	public int getQtdMaxBicicletas() {
 		return qtdMaxBicicletas;
@@ -34,8 +35,8 @@ public class PitStop {
 	// Metodos
 	public void cadastraPitStop() {
 		System.out.println("\nSiga as informações para cadastrar o endereco do pitstop:");
-		setEndereco(endereco);
-		System.out.println("\nDigite a quantidade maxima de bicicletas que existirá nesse pitstop:");
+		cadastraEndereco(endereco);
+		System.out.print("Digite a quantidade maxima de bicicletas que existirá nesse pitstop:");
 		setQtdMaxBicicletas(ler.nextInt());
 		setQtdAtualBicicletas(0);
 		System.out.println("\nPitStop cadastrado com sucesso.");
@@ -60,6 +61,7 @@ public class PitStop {
 	public void cadastraBicicleta() {// Cadastra uma bicicleta no PitStop, se for possivel
 		if(getQtdMaxBicicletas() > getQtdAtualBicicletas()) {
 			setQtdAtualBicicletas(getQtdAtualBicicletas()+1);
+			System.out.println("Bicicleta cadastrada com sucesso.");
 		}else
 			System.out.println("\nO numero maximo de bicicletas foi atingido.");
 	}

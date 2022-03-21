@@ -10,8 +10,9 @@ public abstract class Pessoa extends Endereco{
 	private Usuario usuario;// Para armazenar infos especificas do usuario
 	private Scanner ler = new Scanner(System.in);// Para realizar os metodos
 	private String temp;// Armazenamento temporario de senha
+	private char res;
 	// Metodo Construtor de Pessoa
-	public Pessoa(String nome, String cpf, String telefone, String rg){
+	public Pessoa(String nome, String cpf, String telefone, String rg, long cep, String estado, String cidade, String logradouro, String complemento, int numero){
 		super(cep, estado, cidade, logradouro, complemento, numero);
 		this.nome = nome;
 		this.cpf = cpf;
@@ -57,8 +58,28 @@ public abstract class Pessoa extends Endereco{
 		setCpf(ler.nextLine());
 		System.out.print("Digite seu telefone:");
 		setTelefone(ler.nextLine());
-		cadastraEndereco();// Chama funcao que edita o endereco
+		System.out.print("Digite o CEP (apenas numeros):");
+		setCEP(ler.nextLong());
+		ler.nextLine();
+		System.out.print("Digite o Estado:");
+		setEstado(ler.nextLine());
+		System.out.print("Digite a cidade:");
+		setCidade(ler.nextLine());
+		System.out.print("Digite a rua:");
+		setLogradouro(ler.nextLine());
+		System.out.print("Digite o numero da casa ou apto:");
+		setNumero(ler.nextInt());
+		do {
+		System.out.print("Deseja adicionar complemento?(S/N):");
+		res = ler.next().charAt(0);
+		}while(res != 'S' && res != 'N');
+		if(res == 'S') {
+			System.out.print("Digite o complemento:");
+			ler.nextLine();
+			setComplemento(ler.nextLine());
+		}
 		System.out.print("Digite seu RG:");
+		ler.nextLine();
 		setRg(ler.nextLine());
 		//setUsuario(usuario);// Chama funcao que edita o usuario
 	}
@@ -93,7 +114,7 @@ public abstract class Pessoa extends Endereco{
 					System.out.println("Telefone alterado com sucesso.");
 					break;
 				case '3':
-					cadastraEndereco();
+					setEndereco(endereco);
 					System.out.println("Endereco alterado com sucesso.");
 					break;
 			}
