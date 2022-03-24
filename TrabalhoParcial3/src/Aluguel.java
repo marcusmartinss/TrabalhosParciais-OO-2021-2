@@ -1,11 +1,16 @@
+import java.util.Date;
+import java.util.Calendar;
+
+
 public class Aluguel {
 	// Atributos
 	private float valorHora;
 	private int qtdDisponivelBicicletas;
-	private String horaRetirada;
-	private String horaDevolucao;
+	private Date horaRetirada;
+	private Date horaDevolucao;
+	Calendar c = Calendar.getInstance();
 	// Metodo Construtor de Aluguel
-	public Aluguel(float d, int qtdDisponivelBicicletas, String horaRetirada, String horaDevolucao) {
+	public Aluguel(float d, int qtdDisponivelBicicletas, Date horaRetirada, Date horaDevolucao) {
 		this.valorHora = d;
 		this.qtdDisponivelBicicletas = qtdDisponivelBicicletas;
 		this.horaRetirada = horaRetirada;
@@ -24,17 +29,17 @@ public class Aluguel {
 	public void setQtdDisponivelBicicletas(int qtdDisponivelBicicletas) {
 		this.qtdDisponivelBicicletas = qtdDisponivelBicicletas;
 	}
-	public String getHoraRetirada() {
+	public Date getHoraRetirada() {
 		return horaRetirada;
 	}
-	public void setHoraRetirada(String horaRetirada) {
-		this.horaRetirada = horaRetirada;
+	public void setHoraRetirada(Date horaRetirada) {
+		this.horaRetirada = c.getTime();
 	}
-	public String getHoraDevolucao() {
+	public Date getHoraDevolucao() {
 		return horaDevolucao;
 	}
-	public void setHoraDevolucao(String horaDevolucao) {
-		this.horaDevolucao = horaDevolucao;
+	public void setHoraDevolucao(Date horaDevolucao) {
+		this.horaDevolucao = c.getTime();
 	}
 	// Metodos
 	public void alugar() {
