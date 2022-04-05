@@ -66,7 +66,7 @@ public class LoginFrame extends JFrame implements ActionListener{
             if ( true ) { // integrar ArrayList do back com front
                 JOptionPane.showMessageDialog(this, "Login realizado!");
             } else {
-                JOptionPane.showMessageDialog(this, "Os dados nao foram encontrados");
+                JOptionPane.showMessageDialog(this, "Os dados não foram encon");
             }
  
         }
