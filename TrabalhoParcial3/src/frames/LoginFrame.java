@@ -8,7 +8,7 @@ public class LoginFrame extends JFrame implements ActionListener{
 
 	Container container = getContentPane(); // Criacao do container
 	JLabel userLabel = new JLabel("Usuario"); // Texto "Usuario"
-	JTextField UserText = new JTextField(20); // Espaco para adicionar texto, 20 caracteres max
+	JTextField userText = new JTextField(20); // Espaco para adicionar texto, 20 caracteres max
 	JLabel passwordLabel = new JLabel("Senha"); // Texto "Senha"
 	JPasswordField passwordText = new JPasswordField(20); // Espaco para adicionar senha, ja fica em asterisco, 20 caracteres max
 	JButton loginButton = new JButton("Login"); // Botao escrito "Login" dentro
@@ -30,7 +30,7 @@ public class LoginFrame extends JFrame implements ActionListener{
 	//  dentro do parenteses se organiza como:
 	// (posicao x na janela, posicao y na janela, largura em px, altura em px)
 		userLabel.setBounds(10, 10, 80, 25); 
-		UserText.setBounds(100, 10, 160, 25); 
+		userText.setBounds(100, 10, 160, 25); 
 		passwordLabel.setBounds(10, 40, 80, 25);
 		passwordText.setBounds(100, 40, 160, 25);
 		showPassword.setBounds(96, 70, 110, 20); // largura e altura aqui sao mais um "safespace" para o texto, nao sei porque
@@ -41,7 +41,7 @@ public class LoginFrame extends JFrame implements ActionListener{
 	public void addComponentsToContainer() {
         container.add(userLabel);
         container.add(passwordLabel);
-        container.add(UserText);
+        container.add(userText);
         container.add(passwordText);
         container.add(showPassword);
         container.add(loginButton);
@@ -60,9 +60,9 @@ public class LoginFrame extends JFrame implements ActionListener{
 		}
 		//Botao de login
 		if (e.getSource() == loginButton) { // se o evento ocorrido for no botao de login
-            String userText;                
+            String UserText;                
             String pwdText;
-            userText = UserText.getText(); // vai pegar o texto no campo de texto de login e senha
+            UserText = userText.getText(); // vai pegar o texto no campo de texto de login e senha
             pwdText = passwordText.getText(); // e comparar, setei como true so como exemplo, mas tem que
             if ( true ) { // integrar ArrayList do back com front
                 JOptionPane.showMessageDialog(this, "Login realizado!"); // mostra uma janela nova com "ok" dizendo isso

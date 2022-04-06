@@ -17,9 +17,19 @@ public class RegisterFrame1 extends JFrame implements ActionListener {
 	JTextField rgText = new JTextField();
 	JLabel telefoneLabel = new JLabel("Telefone");
 	JTextField telefoneText = new JTextField();
-	JLabel enderecoLabel = new JLabel("Endereco");
-	JTextField enderecoText = new JTextField();
-	
+	JLabel enderecoLabel = new JLabel("Endereco:");
+	JLabel cepLabel = new JLabel("CEP");
+	JTextField cepText = new JTextField();
+	JLabel estadoLabel = new JLabel("Estado");
+	JTextField estadoText = new JTextField();
+	JLabel cidadeLabel = new JLabel("Cidade");
+	JTextField cidadeText = new JTextField();
+	JLabel ruaLabel = new JLabel("Rua");
+	JTextField ruaText = new JTextField();
+	JLabel numeroLabel = new JLabel("Numero");
+	JTextField numeroText = new JTextField();
+	JLabel compLabel = new JLabel ("Complemento");
+	JTextField compText = new JTextField();
 	JButton nextButton = new JButton("Proximo");
 	JButton backButton = new JButton("Anterior");
 	
@@ -35,12 +45,56 @@ public class RegisterFrame1 extends JFrame implements ActionListener {
     }
 	
 	public void setLocationAndSize() {
-		
+		nameLabel.setBounds(10, 10, 80, 25);
+		nameText.setBounds(90,10,160,25);
+		cpfLabel.setBounds(10, 40, 80, 25);
+		cpfText.setBounds(90,40,160,25);
+		rgLabel.setBounds(10,70,80,25);
+		rgText.setBounds(90,70,160,25);
+		telefoneLabel.setBounds(10,100,80,25);
+		telefoneText.setBounds(90,100,160,25);
+		enderecoLabel.setBounds(10,130,80,25);
+		cepLabel.setBounds(50,160, 160, 25);
+		cepText.setBounds(140,160,160,25);
+		estadoLabel.setBounds(50,190, 160, 25);
+		estadoText.setBounds(140,190,160,25);
+		cidadeLabel.setBounds(50,220, 160, 25);
+		cidadeText.setBounds(140,220,160,25);
+		ruaLabel.setBounds(50,250, 160, 25);
+		ruaText.setBounds(140,250,160,25);
+		numeroLabel.setBounds(50,280,160,25);
+		numeroText.setBounds(140,280,160,25);
+		compLabel.setBounds(50,310,160,25);
+		compText.setBounds(140,310,160,25);
+		backButton.setBounds(20, 360, 100, 25);
+		nextButton.setBounds(217, 360, 100, 25);
 	}
 	
 	public void addComponentsToContainer() {
-		
-	}
+		container.add(nameLabel);
+		container.add(nameText);
+		container.add(cpfLabel);
+		container.add(cpfText);
+		container.add(rgLabel);
+		container.add(rgText);
+		container.add(telefoneLabel);
+		container.add(telefoneText);
+		container.add(enderecoLabel);
+		container.add(cepLabel);
+		container.add(cepText);
+		container.add(estadoLabel);
+		container.add(estadoText);
+		container.add(cidadeLabel);
+		container.add(cidadeText);
+		container.add(ruaLabel);
+		container.add(ruaText);
+		container.add(numeroLabel);
+		container.add(numeroText);
+		container.add(compLabel);
+		container.add(compText);
+		container.add(nextButton);
+		container.add(backButton);
+		}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -48,14 +102,15 @@ public class RegisterFrame1 extends JFrame implements ActionListener {
 	}
 	
 	public void addActionEvent() {
-		
+		nextButton.addActionListener(this);
+        backButton.addActionListener(this);
 	}
 	
 	public static void main(String[] args) {
 		RegisterFrame1 registerFrame1 = new RegisterFrame1(); 
 		registerFrame1.setTitle("Cadastro"); 
-		registerFrame1.setVisible(false); 
-		registerFrame1.setSize(800, 350); 
+		registerFrame1.setVisible(true); 
+		registerFrame1.setSize(350, 450); 
 		registerFrame1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); 
 		registerFrame1.setResizable(false);
 	}
