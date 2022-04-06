@@ -1,0 +1,29 @@
+package frames;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class RegisterFrame1 extends JFrame implements ActionListener {
+
+	Container container = getContentPane();
+	JLabel nameLabel = new JLabel("Nome");
+	JTextField nameText = new JTextField();
+	JLabel cpfLabel = new JLabel("CPF");
+	JTextField cpfText = new JTextField();
+	JLabel rgLabel = new JLabel("RG");
+	JTextField rgText = new JTextField();
+	JLabel telefoneLabel = new JLabel("Telefone");
+	JTextField telefoneText = new JTextField();
+	JLabel enderecoLabel = new JLabel("Endereco");
+	JTextField enderecoText = new JTextField();
+	
+	JButton nextButton = new JButton("Proximo");
+	JButton backButton = new JButton("Anterior");
+	
+	RegisterFrame() {
+		setLayoutManager();
+		setLocationAndSize();
+        addComponentsToContainer();
+        addActionEvent();
+	}
+}

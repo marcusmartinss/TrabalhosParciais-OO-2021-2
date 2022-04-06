@@ -9,6 +9,7 @@ public abstract class Pessoa extends Endereco{
 	private String rg;
 	private Usuario usuario;// Para armazenar infos especificas do usuario
 	private Scanner ler = new Scanner(System.in);// Para realizar os metodos
+	
 	private char res;
 	// Metodo Construtor de Pessoa
 	public Pessoa(String nome, String cpf, String telefone, String rg, long cep, String estado, String cidade, String logradouro, String complemento, int numero){

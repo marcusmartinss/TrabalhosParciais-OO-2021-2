@@ -74,7 +74,6 @@ public class LoginFrame extends JFrame implements ActionListener{
         //Botao de registro
         if (e.getSource() == registerButton) { // se a acao for no botao de cadastro
             // colocar tela de registro
-        	// registerFrame.setVisible(true);
         }
 
 	}
@@ -92,5 +91,12 @@ public class LoginFrame extends JFrame implements ActionListener{
 		loginFrame.setSize(300, 175); // largura e altura da janela
 		loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // quando fechar a janela, fecha o programa
 		loginFrame.setResizable(false); // nao deixa redefinir o tamanho da janela
+		
+		RegisterFrame1 registerFrame = new RegisterFrame1(); // cria a janela
+		registerFrame.setTitle("Cadastro"); // define o nome da janela
+		registerFrame.setVisible(false);  // deixa ela visivel
+		registerFrame.setSize(800, 350); // largura e altura da janela
+		registerFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); // quando fechar a janela, fecha o programa
+		registerFrame.setResizable(false);
 	}
 }

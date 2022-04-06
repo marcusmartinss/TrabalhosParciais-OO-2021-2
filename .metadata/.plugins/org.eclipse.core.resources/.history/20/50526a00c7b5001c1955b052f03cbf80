@@ -1,0 +1,30 @@
+package frames;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class RegisterFrame1 extends JFrame implements ActionListener {
+
+	Container container = getContentPane();
+	JLabel nameLabel = new JLabel("Nome");
+	JTextField nameText = new JTextField();
+	JLabel cpfLabel = new JLabel("CPF");
+	JTextField cpfText = new JTextField();
+	JLabel telefoneLabel = new JLabel("Telefone");
+	JTextField telefoneText = new JTextField();
+	JLabel cpfLabel = new JLabel("CPF");
+	JTextField cpfText = new JTextField();
+	JLabel cpfLabel = new JLabel("CPF");
+	JTextField cpfText = new JTextField();
+	
+	JButton loginButton = new JButton("Login");
+	JButton registerButton = new JButton("Registro");
+	JCheckBox showPassword = new JCheckBox("Mostrar senha");
+	
+	RegisterFrame() {
+		setLayoutManager();
+		setLocationAndSize();
+        addComponentsToContainer();
+        addActionEvent();
+	}
+}

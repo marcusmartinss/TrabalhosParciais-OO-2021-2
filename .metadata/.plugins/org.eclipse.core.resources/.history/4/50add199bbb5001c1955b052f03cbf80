@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 public class LoginFrame extends JFrame implements ActionListener{
 
 	Container container = getContentPane(); // Criacao do container
@@ -74,7 +75,6 @@ public class LoginFrame extends JFrame implements ActionListener{
         //Botao de registro
         if (e.getSource() == registerButton) { // se a acao for no botao de cadastro
             // colocar tela de registro
-        	// registerFrame.setVisible(true);
         }
 
 	}
@@ -88,7 +88,7 @@ public class LoginFrame extends JFrame implements ActionListener{
 	public static void main(String[] args) {
 		LoginFrame loginFrame = new LoginFrame(); // cria a janela
 		loginFrame.setTitle("Login"); // define o nome da janela
-		loginFrame.setVisible(true);  // deixa ela visivel
+		loginFrame.setVisible(true); // deixa ela visivel
 		loginFrame.setSize(300, 175); // largura e altura da janela
 		loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // quando fechar a janela, fecha o programa
 		loginFrame.setResizable(false); // nao deixa redefinir o tamanho da janela

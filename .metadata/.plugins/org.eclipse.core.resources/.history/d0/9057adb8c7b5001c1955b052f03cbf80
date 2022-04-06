@@ -74,7 +74,6 @@ public class LoginFrame extends JFrame implements ActionListener{
         //Botao de registro
         if (e.getSource() == registerButton) { // se a acao for no botao de cadastro
             // colocar tela de registro
-        	// registerFrame.setVisible(true);
         }
 
 	}
