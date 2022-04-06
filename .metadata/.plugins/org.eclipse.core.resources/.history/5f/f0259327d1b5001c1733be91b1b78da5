@@ -6,11 +6,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class RegisterFrame2 extends JFrame implements ActionListener {
+public class RegisterFrame1 extends JFrame implements ActionListener {
 
-	Container container = getContentPane(); // Janela de usuario
+	Container container = getContentPane(); // janela de pessoa
 	JLabel nameLabel = new JLabel("Nome");  // estruturar
-	JTextField nameText = new JTextField(); // mudar os nomes
+	JTextField nameText = new JTextField();
 	JLabel cpfLabel = new JLabel("CPF");
 	JTextField cpfText = new JTextField();
 	JLabel rgLabel = new JLabel("RG");
@@ -23,7 +23,7 @@ public class RegisterFrame2 extends JFrame implements ActionListener {
 	JButton nextButton = new JButton("Proximo");
 	JButton backButton = new JButton("Anterior");
 	
-	RegisterFrame2() {
+	RegisterFrame1() {
 		setLayoutManager();
 		setLocationAndSize();
         addComponentsToContainer();
@@ -52,12 +52,12 @@ public class RegisterFrame2 extends JFrame implements ActionListener {
 	}
 	
 	public static void main(String[] args) {
-		RegisterFrame2 registerFrame2 = new RegisterFrame2(); 
-		registerFrame2.setTitle("Cadastro"); 
-		registerFrame2.setVisible(false); 
-		registerFrame2.setSize(800, 350); 
-		registerFrame2.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); 
-		registerFrame2.setResizable(false);
+		RegisterFrame1 registerFrame1 = new RegisterFrame1(); 
+		registerFrame1.setTitle("Cadastro"); 
+		registerFrame1.setVisible(false); 
+		registerFrame1.setSize(800, 350); 
+		registerFrame1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); 
+		registerFrame1.setResizable(false);
 	}
 
 }
