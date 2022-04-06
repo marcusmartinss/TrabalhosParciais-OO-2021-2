@@ -16,7 +16,7 @@ public class Main {
 		ArrayList<Bicicleta> bicicletas = new ArrayList<>();
 		ArrayList<Usuario> usuarios = new ArrayList<>();
 		ArrayList<PitStop> pitstops = new ArrayList<>();
-		ArrayList<Aluguel> aluguels = new ArrayList<>();
+		Aluguel aluguel = new Aluguel(0, 0, null, null);
 		
 		
 		// Menus
@@ -170,7 +170,8 @@ public class Main {
 												break;
 											}
 										}
-									}
+									}else
+										System.out.println("Nao foi encontrado nenhum pitstop.");
 							}else
 								System.out.println("Nao existe nenhum PitStop cadastrado.");
 							break;
@@ -199,7 +200,8 @@ public class Main {
 												break;
 											}
 										}
-									}
+									}else
+										System.out.println("Nao foi encontrado nenhum pitstop.");
 							}else
 								System.out.println("Nao existe nenhum PitStop cadastrado.");
 							break;
@@ -211,10 +213,12 @@ public class Main {
 					opcao2 = menuAluguel();
 					switch (opcao2) {
 						case '1':
-							
+							aluguel.setHoraRetirada(null);
+							System.out.println("Hora da retirada: " + aluguel.getHoraRetirada());
 							break;
 						case '2':
-							
+							aluguel.setHoraDevolucao(null);
+							System.out.println("Hora da devolucao: " + aluguel.getHoraDevolucao());
 							break;
 						default:
 							break;
@@ -236,7 +240,7 @@ public class Main {
 	public static char menu() {
 		char opcao;
 		System.out.println("----------Menu----------");
-		System.out.println("1- Usuario\n2- PitStops\n3- Alugar\n5- Encerrar");
+		System.out.println("1- Usuario\n2- PitStops\n3- Alugar\n4- Encerrar");
 		opcao = ler.next().charAt(0);
 		return opcao;
 	}

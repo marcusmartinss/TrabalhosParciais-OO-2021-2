@@ -5,6 +5,7 @@ public class PitStop extends Endereco{
 	private Endereco endereco;
 	private int qtdMaxBicicletas;
 	private int qtdAtualBicicletas;
+	private char res;
 	private Scanner ler = new Scanner(System.in);// Para os metodos
 	// Metodo Construtor de PitStop
 	public PitStop(Endereco endereco, int qtdMaxBicicletas, int qtdAtualBicicletas, long cep, String estado, String cidade, String logradouro, String complemento, int numero) {
@@ -35,7 +36,23 @@ public class PitStop extends Endereco{
 	// Metodos
 	public void cadastraPitStop() {
 		System.out.println("\nSiga as informações para cadastrar o endereco do pitstop:");
-		cadastraEndereco(endereco);
+		System.out.print("Digite o Estado:");
+		setEstado(ler.nextLine());
+		System.out.print("Digite a cidade:");
+		setCidade(ler.nextLine());
+		System.out.print("Digite a rua:");
+		setLogradouro(ler.nextLine());
+		System.out.print("Digite o numero da casa ou apto:");
+		setNumero(ler.nextInt());
+		do {
+		System.out.print("Deseja adicionar complemento?(S/N):");
+		res = ler.next().charAt(0);
+		}while(res != 'S' && res != 'N');
+		if(res == 'S') {
+			System.out.print("Digite o complemento:");
+			ler.nextLine();
+			setComplemento(ler.nextLine());
+		}
 		System.out.print("Digite a quantidade maxima de bicicletas que existirá nesse pitstop:");
 		setQtdMaxBicicletas(ler.nextInt());
 		setQtdAtualBicicletas(0);

@@ -55,28 +55,4 @@ public class Endereco{
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	// Metodos
-	public Endereco cadastraEndereco(Endereco endereco) {
-		System.out.print("Digite o CEP (apenas numeros):");
-		setCEP(ler.nextLong());
-		ler.nextLine();
-		System.out.print("Digite o Estado:");
-		setEstado(ler.nextLine());
-		System.out.print("Digite a cidade:");
-		setCidade(ler.nextLine());
-		System.out.print("Digite a rua:");
-		setLogradouro(ler.nextLine());
-		System.out.print("Digite o numero da casa ou apto:");
-		setNumero(ler.nextInt());
-		do {
-		System.out.print("Deseja adicionar complemento?(S/N):");
-		res = ler.next().charAt(0);
-		}while(res != 'S' && res != 'N');
-		if(res == 'S') {
-			System.out.print("Digite o complemento:");
-			ler.nextLine();
-			setComplemento(ler.nextLine());
-		}
-		return endereco;
-	}
 }
