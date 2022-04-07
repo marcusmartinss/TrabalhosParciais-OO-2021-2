@@ -223,7 +223,8 @@ public class Main {
 							break;
 						case '2':
 							aluguel.setHoraDevolucao(null);
-							System.out.println("Hora da devolucao: " + aluguel.getHoraDevolucao());
+							aluguel.devolver();
+							//System.out.println("Hora da devolucao: " + aluguel.getHoraDevolucao());
 							break;
 						default:
 							break;
