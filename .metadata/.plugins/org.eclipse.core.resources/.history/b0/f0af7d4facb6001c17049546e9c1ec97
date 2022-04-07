@@ -1,11 +1,7 @@
 package controller;
-
 import java.util.Scanner;
 import java.util.ArrayList;
 
-import frames.*;
-
-// import package
 
 public class Main {
 	public static Scanner ler = new Scanner(System.in);
@@ -23,7 +19,7 @@ public class Main {
 		ArrayList<Usuario> usuarios = new ArrayList<>();
 		ArrayList<PitStop> pitstops = new ArrayList<>();
 		Aluguel aluguel = new Aluguel(0, 0, null, null);
-		// 
+		
 		
 		// Menus
 		do {
@@ -124,6 +120,7 @@ public class Main {
 							break;
 						case '3':
 							for(i = 0; i < pitstops.size(); i++) {
+								System.out.println(i);
 								System.out.print(i+1 + "- ");
 								System.out.println(pitstops.get(i).getCidade() + "-" + pitstops.get(i).getEstado()
 												 + " " + pitstops.get(i).getLogradouro()+" "+ pitstops.get(i).getNumero() + 

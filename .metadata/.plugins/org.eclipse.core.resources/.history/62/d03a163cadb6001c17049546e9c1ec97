@@ -1,9 +1,6 @@
 package controller;
-
 import java.util.Scanner;
 import java.util.ArrayList;
-
-import frames.*;
 
 // import package
 
@@ -23,7 +20,7 @@ public class Main {
 		ArrayList<Usuario> usuarios = new ArrayList<>();
 		ArrayList<PitStop> pitstops = new ArrayList<>();
 		Aluguel aluguel = new Aluguel(0, 0, null, null);
-		// 
+		
 		
 		// Menus
 		do {
