@@ -1,8 +1,6 @@
 package controller;
 
-import java.util.Date;
 import java.util.Calendar;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class Aluguel {
@@ -12,7 +10,6 @@ public class Aluguel {
 	private String horaRetirada; 
 	private String horaDevolucao;
 	
-	Calendar c = Calendar.getInstance();
 	// Metodo Construtor de Aluguel
 	public Aluguel(float d, int qtdDisponivelBicicletas, String horaRetirada, String horaDevolucao) {
 		this.valorHora = d;
@@ -55,7 +52,7 @@ public class Aluguel {
 		System.out.println("Data da devolucao: " + this.horaDevolucao);
 	}
 	public boolean verifDisponibilidade() {
-		if(getQtdDisponivelBicicletas() != 0) {
+		if(this.getQtdDisponivelBicicletas() != 0) {
 			return true;
 		}else
 			return false;

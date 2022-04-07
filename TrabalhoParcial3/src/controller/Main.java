@@ -23,7 +23,15 @@ public class Main {
 		ArrayList<Usuario> usuarios = new ArrayList<>();
 		ArrayList<PitStop> pitstops = new ArrayList<>();
 		Aluguel aluguel = new Aluguel(0, 0, null, null);
-		// 
+		Endereco taguatinga = new Endereco(1547896571, "DF", "Taguatinga", "QNG 12", null, 24);
+		Endereco ceilandia = new Endereco(1874135465, "DF", "Ceilandia", "QNM 45", null, 17);
+		Endereco luziania = new Endereco(1124653214, "GO", "Luziania", "Rua do comercio 15", null, 14);
+		Usuario usuario1 = new Usuario("171717", "iago@gmail.com", "arroz1A", "Iago de Sousa Campelo Matos", "12345674899", "6188798845", "8526314", 12121212, "DF", "Taguatinga", "QNG 22", null, 34);
+		Usuario usuario2 = new Usuario("151515", "marcus@gmail.com", "feijao1A", "Marcus Vinicius Paiva Martins", "45456879221", "6187963121", "57898451", 13131313, "DF", "Taguatinga", "QNF 12", null, 24);
+		Usuario usuario3 = new Usuario("111111", "millena@hotmail.com", "salada1A", "Millena de Abreu Queiroz", "78965832515", "6287456512", "8946124", 19191919, "GO", "Luziania", "Rua do comercio 24", null, 12);
+		PitStop pitstop1 = new PitStop(taguatinga, 20, 10, 1547896571, "DF", "Taguatinga", "QNG 12", null, 24);
+		PitStop pitstop2 = new PitStop(ceilandia, 25, 3, 1874135465, "DF", "Ceilandia", "QNM 45", null, 17);
+		PitStop pitstop3 = new PitStop(luziania, 17, 17, 1124653214, "GO", "Luziania", "Rua do comercio 15", null, 14);
 		
 		// Menus
 		do {

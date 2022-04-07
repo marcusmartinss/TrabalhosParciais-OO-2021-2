@@ -45,26 +45,16 @@ public class PitStop extends Endereco{
 		setLogradouro(ler.nextLine());
 		System.out.print("Digite o numero da casa ou apto:");
 		setNumero(ler.nextInt());
-		do {
-		System.out.print("Deseja adicionar complemento?(S/N):");
-		res = ler.next().charAt(0);
-		}while(res != 'S' && res != 'N');
-		if(res == 'S') {
-			System.out.print("Digite o complemento:");
-			ler.nextLine();
-			setComplemento(ler.nextLine());
-		}
 		System.out.print("Digite a quantidade maxima de bicicletas que existirá nesse pitstop:");
 		setQtdMaxBicicletas(ler.nextInt());
 		setQtdAtualBicicletas(0);
 		System.out.println("\nPitStop cadastrado com sucesso.");
 	}
 	public void visualizaPitStop() {
-		System.out.println("Endereco do PitStop: \nCEP: " + this.endereco.getCEP() + "\nCidade: " + this.endereco.getCidade() + 
-						   "\nComplemento: " + this.endereco.getComplemento() + "\nEstado: " + this.endereco.getEstado() + 
-						   "\nRua: " + this.endereco.getLogradouro() + "\nNumero: " + this.endereco.getNumero() + 
-						   "\nQuantidade Maxima de Bicicletas: " + this.qtdMaxBicicletas + "\nQuantidade Atual de Bicicletas: "
-						   + this.qtdAtualBicicletas);
+		System.out.println("\nCidade: " + this.endereco.getCidade() + "\nEstado: " + this.endereco.getEstado() 
+							+ "\nRua: " + this.endereco.getLogradouro() + "\nNumero: " + this.endereco.getNumero() 
+							+ "\nQuantidade Maxima de Bicicletas: " + this.qtdMaxBicicletas + "\nQuantidade Atual de Bicicletas: "
+							+ this.qtdAtualBicicletas);
 	}
 	public void buscaPitStop() {
 		this.endereco.getCidade();
