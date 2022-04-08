@@ -1,0 +1,59 @@
+package frames;
+
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JScrollBar;
+import javax.swing.JTextField;
+
+public class BuscarPitStop extends JFrame implements ActionListener{
+
+	Container container = getContentPane(); // Criacao do container
+	JLabel userLabel = new JLabel("Listar Pit-Stop"); // Texto "Usuario"
+	JTextField userText = new JTextField(20); // Espaco para adicionar texto, 20 caracteres max
+	JScrollBar scrollVert = new JScrollBar();
+	
+	BuscarPitStop() { // Metodo para montagem e interacao do frame de login
+		setLayoutManager(); // permite posicionar livremente
+		setLocationAndSize(); // define local e tamanho
+        addComponentsToContainer(); // adiciona a janela (container)
+        addActionEvent(); // gerencia a interatividade
+	}
+	
+	public void setLayoutManager() {
+        container.setLayout(null); // setando o layout do container como null
+    }                              // conseguimos colocar a posicao no que quisermos
+	
+	public void setLocationAndSize() {
+		scrollVert.setBounds(560, 0, 20, 430);
+		this.add(scrollVert);
+	}
+	
+	public void addComponentsToContainer() {
+		
+    }
+	
+	public void actionPerformed(ActionEvent e) { //Acoes ao interagir
+		
+	}
+	
+	public void addActionEvent() { // metodo que faz a acao que foi o "ouvida" na interacao
+        
+    }
+	
+	public static void main(String[] args) {
+		BuscarPitStop buscarPitStop = new BuscarPitStop(); // cria a janela
+		buscarPitStop.setTitle("Buscar Pit-Stop"); // define o nome da janela
+		buscarPitStop.setVisible(true);  // deixa ela visivel
+		buscarPitStop.setSize(600, 450); // largura e altura da janela
+		buscarPitStop.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // quando fechar a janela, fecha o programa
+		buscarPitStop.setResizable(false); // nao deixa redefinir o tamanho da janela  
+	}  
+}  

@@ -1,0 +1,60 @@
+package frames;
+
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollBar;
+import javax.swing.JTextField;
+
+public class MenuPrincipal extends JFrame implements ActionListener{
+	
+	Container container     = getContentPane(); // Criacao do container
+	JLabel    userLabel     = new JLabel ("Listar Pit-Stop"); // Texto "Usuario"
+	JButton   aluguelButton = new JButton("Alugar");
+	JButton   userButton    = new JButton("Menu Usuario");
+	JButton   pitStopButton = new JButton("Menu Pit-Stop");
+	
+	
+	MenuPrincipal() { // Metodo para montagem e interacao do frame de login
+		setLayoutManager(); // permite posicionar livremente
+		setLocationAndSize(); // define local e tamanho
+        addComponentsToContainer(); // adiciona a janela (container)
+        addActionEvent(); // gerencia a interatividade
+	}
+	
+	public void setLayoutManager() {
+        container.setLayout(null); // setando o layout do container como null
+    }                              // conseguimos colocar a posicao no que quisermos
+	
+	public void setLocationAndSize() {
+		aluguelButton.setBounds(150, 225, 100, 40);
+		userButton.setBounds(100, 175, 100, 40);
+		pitStopButton.setBounds(500, 175, 100, 40);
+	}
+	
+	public void addComponentsToContainer() {
+		container.add(aluguelButton);
+		container.add(userButton);
+		container.add(setBounds);
+    }
+	
+	public void actionPerformed(ActionEvent e) { //Acoes ao interagir
+		
+	}
+	
+	public void addActionEvent() { // metodo que faz a acao que foi o "ouvida" na interacao
+        
+    }
+	
+	public static void main(String[] args) {
+		MenuPrincipal menuPrincipal = new MenuPrincipal(); // cria a janela
+		menuPrincipal.setTitle("Menu Principal"); // define o nome da janela
+		menuPrincipal.setVisible(true);  // deixa ela visivel
+		menuPrincipal.setSize(600, 450); // largura e altura da janela
+		menuPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // quando fechar a janela, fecha o programa
+	}  
+}

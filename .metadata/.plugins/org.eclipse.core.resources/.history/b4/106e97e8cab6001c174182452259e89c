@@ -1,0 +1,146 @@
+package frames;
+/*
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class BuscarPitStop extends JFrame implements ActionListener{
+
+	Container container = getContentPane(); // Criacao do container
+	JLabel userLabel = new JLabel("Listar Pit-Stop"); // Texto "Usuario"
+	JTextField userText = new JTextField(20); // Espaco para adicionar texto, 20 caracteres max
+	
+	BuscarPitStop() { // Metodo para montagem e interacao do frame de login
+		setLayoutManager(); // permite posicionar livremente
+		setLocationAndSize(); // define local e tamanho
+        addComponentsToContainer(); // adiciona a janela (container)
+        addActionEvent(); // gerencia a interatividade
+	}
+	
+	public void setLayoutManager() {
+        container.setLayout(null); // setando o layout do container como null
+    }                              // conseguimos colocar a posicao no que quisermos
+	
+	public void setLocationAndSize() {
+		
+	}
+	
+	public void addComponentsToContainer() {
+		
+    }
+	
+	public void actionPerformed(ActionEvent e) { //Acoes ao interagir
+		
+
+	}
+	
+	public void addActionEvent() { // metodo que faz a acao que foi o "ouvida" na interacao
+        
+    }
+	
+	public static void main(String[] args) {
+		LoginFrame loginFrame = new LoginFrame(); // cria a janela
+		loginFrame.setTitle("Buscar Pit-Stop"); // define o nome da janela
+		loginFrame.setVisible(true);  // deixa ela visivel
+		loginFrame.setSize(300, 175); // largura e altura da janela
+		loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // quando fechar a janela, fecha o programa
+		loginFrame.setResizable(false); // nao deixa redefinir o tamanho da janela
+	}
+}
+*/
+
+import java.sql.*;
+
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+  
+public class BuscarPitStop extends javax.swing.JFrame {
+  
+	JTextField jTextField1 = new JTextField();
+	JTextField jTextField2 = new JTextField();
+	JTextField jTextField3 = new JTextField();
+	JTextField jTextField4 = new JTextField();
+	JTextArea  jTextArea1  = new JTextArea();
+	
+	JButton jButton1 = new JButton("");
+	
+	JTable jTable1 = new JTable();
+	
+    Connection con = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+    // JButton1 Code starts from here
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/student", "root",
+            "root");
+        stmt = con.createStatement();
+        String rollno = jTextField1.getText();
+        String name   = jTextField2.getText();
+        String clss   = jTextField3.getText();
+        String sec    = jTextField4.getText();
+        String adr    = jTextArea1.getText();
+        String INSERT = "INSERT INTO RECORD VALUES('"
+                        + rollno + "','" + name + "','"
+                        + clss + "','" + sec + "','" + adr
+                        + "');";
+        stmt.executeUpdate(INSERT);
+        JOptionPane.showMessageDialog(
+            this, "Record Added Successfully");
+        jButton1.setEnabled(true);
+    }
+    catch (Exception e) {
+        JOptionPane.showMessageDialog(
+            this, "Error In Connectivity");
+    }
+    DefaultTableModel model
+    = (DefaultTableModel)jTable1.getModel();
+try {
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con = DriverManager.getConnection(
+        "jdbc:mysql://localhost:3306/student", "root",
+        "root");
+    String query = "SELECT* FROM RECORD;";
+    ResultSet rs = stmt.executeQuery(query);
+    while (rs.next()) {
+        String rollno = rs.getString("rollno");
+        String name = rs.getString("name");
+        String clss = rs.getString("class");
+        String sec = rs.getString("section");
+        String adr = rs.getString("address");
+        model.addRow(
+            new Object[] { rollno, name, clss, sec, adr });
+    }
+    rs.close();
+    stmt.close();
+    con.close();
+}
+catch (Exception e) {
+    JOptionPane.showMessageDialog(this,
+                                  "Error In Connectivity");
+}
+jTextField1.setText("");
+jTextField2.setText("");
+jTextField3.setText("");
+jTextField4.setText("");
+jTextArea1.setText("");
+DefaultTableModel dm = (DefaultTableModel)jTable1.getModel();
+dm.getDataVector().removeAllElements();
+jTable1.repaint();
+
+public static void main(String[] args) {
+	BuscarPitStop buscarPitStop = new BuscarPitStop();
+}
