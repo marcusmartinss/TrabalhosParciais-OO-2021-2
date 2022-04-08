@@ -5,21 +5,39 @@ import java.util.ArrayList;
 
 import frames.*;
 
-// import package
-
+/**
+ * 
+ * Classe principal do programa de bicicletas compartilhadas
+ * 
+ * @author iagom, marcusmartinsxx
+ * @version 4.00
+ * @since Release 3 da aplicacao
+ *
+ */
 public class Main {
+	
 	public static Scanner ler = new Scanner(System.in);
 
+	/**
+	 * 
+	 * Metodo principal do programa
+	 * 
+	 * @param args
+	 * 
+	 */
 	public static void main(String[] args) {
-		// Variaveis de teste
+		/**
+		 * Variaveis necessarias para o funcionamento do teste
+		 */
 		int ID, indexLog = -1, opcaonum, cout = 0;
 		int posUsuario = -1,posPitStop = -1, i;
 		char opcao1, opcao2, opcao3;
 		boolean existe;
 		String tempEmail, emailLog, busca; 
 		String tempSenha, senhaLog;
-		// Declaracao de objetos vetorizados
-		ArrayList<Bicicleta> bicicletas = new ArrayList<>();
+		/** 
+		 * Declaracao de objetos vetorizados
+		 */
 		ArrayList<Usuario> usuarios = new ArrayList<>();
 		ArrayList<PitStop> pitstops = new ArrayList<>();
 		Aluguel aluguel = new Aluguel(0, 0, null, null);
@@ -32,10 +50,11 @@ public class Main {
 		PitStop pitstop1 = new PitStop(taguatinga, 20, 10, 1547896571, "DF", "Taguatinga", "QNG 12", null, 24);
 		PitStop pitstop2 = new PitStop(ceilandia, 25, 3, 1874135465, "DF", "Ceilandia", "QNM 45", null, 17);
 		PitStop pitstop3 = new PitStop(luziania, 17, 17, 1124653214, "GO", "Luziania", "Rua do comercio 15", null, 14);
-		
-		// Menus
+		/** 
+		 * Menu principal
+		 */
 		do {
-			int n = usuarios.size();
+			int n = usuarios.size();//Define o tamanho da quantidade atual de usuários
 			opcao1 = menu();
 			switch(opcao1) {
 				case '1': // Opcao Usuario
@@ -251,6 +270,10 @@ public class Main {
 		
 	}
 
+	/**
+	 * Metodo para print e retorno de opcao do menu principal
+	 * @return opcao - Opcao escolhida pelo usuario
+	 */
 	public static char menu() {
 		char opcao;
 		System.out.println("----------Menu----------");
@@ -259,11 +282,18 @@ public class Main {
 		return opcao;
 	}
 	
+	/**
+	 * Metodo para fazer um "enter" na funcao
+	 */
 	public static void enter() {
 		System.out.println("\nPressione Enter para continuar");
 		ler.nextLine();
 	}
 	
+	/**
+	 * Metodo para print e retorno de opcao do menu de usuario
+	 * @return opcao - Opcao escolhida pelo usuario
+	 */
 	public static char menuUsuario() {
 		char opcao;
 		System.out.println("------Menu-Usuario------");
@@ -272,6 +302,10 @@ public class Main {
 		return opcao;
 	}
 	
+	/**
+	 * Metodo para print e retorno de opcao do menu de editar usuario
+	 * @return opcao - Opcao escolhida pelo usuario
+	 */
 	public static char menuEditaUsuario() {
 		char opcao;
 		System.out.println("---Menu-Edita-Usuario---");
@@ -280,6 +314,10 @@ public class Main {
 		return opcao;
 	}
 	
+	/**
+	 * Metodo para print e retorno de opcao do menu de pitstop
+	 * @return opcao - Opcao escolhida pelo usuario
+	 */
 	public static char menuPitStop() {
 		char opcao;
 		System.out.println("------Menu-PitStop------");
@@ -288,6 +326,10 @@ public class Main {
 		return opcao;
 	}
 	
+	/**
+	 * Metodo para print e retorno de opcao do menu de aluguel
+	 * @return opcao - Opcao escolhida pelo usuario
+	 */
 	public static char menuAluguel() {
 		char opcao;
 		System.out.println("------Menu-Aluguel------");

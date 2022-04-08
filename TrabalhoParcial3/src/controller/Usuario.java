@@ -1,18 +1,38 @@
 package controller;
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
-
+/**
+ * 
+ * Classe de usuario 
+ * 
+ * @author iagom, marcusmartinsxx
+ * @version 4.00
+ * @since Release 3 da aplicacao
+ *
+ */
 public class Usuario extends Pessoa{
 	// Atributos
 	private String id;
 	private String email;
 	private String senha;
 	private Scanner ler = new Scanner(System.in);// Para os metodos
-	private Random gerador = new Random();// Para gerar ID
-	private int totalUsuarios = 50;//Valor base para testagem
 	
-	// Metodo Construtor de Usuario
+	/**
+	 * Metodo construtor de usuario
+	 * 
+	 * @param id - o id do usuario
+	 * @param email - o email do usuario
+	 * @param senha - a senha do usuario
+	 * @param nome - o nome do usuario
+	 * @param cpf - o cpf do usuario
+	 * @param telefone - o telefone do usuario
+	 * @param rg - o rg do usuario
+	 * @param cep - o cep do usuario
+	 * @param estado - o estado do usuario
+	 * @param cidade - a cidade do usuario
+	 * @param logradouro - a rua do usuario
+	 * @param complemento - complemento adicionado ao endereco se necessario
+	 * @param numero - numero do endereco do usuario
+	 */
 	public Usuario(String id, String email, String senha, String nome, String cpf, String telefone, String rg, long cep, String estado, String cidade, String logradouro, String complemento, int numero) {
 		super(nome, cpf, telefone, rg, cep, estado, cidade, logradouro, complemento, numero);
 		this.setNome(nome);
@@ -43,6 +63,10 @@ public class Usuario extends Pessoa{
 		this.senha = senha;
 	}
 	// Metodos
+	/**
+	 * Metodo que cadastra o usuario
+	 * @param usuario - todas as infos dentro do objeto Usuario
+	 */
 	public void cadastraUsuario(Usuario[] usuario) {
 		this.cadastraPessoa(usuario);
 		String tempSenha1, tempSenha2, tempEmail;
@@ -85,6 +109,9 @@ public class Usuario extends Pessoa{
 		this.setSenha(tempSenha1);
 		this.setEmail(tempEmail);
 	}
+	/**
+	 * Metodo que edita as infos do usuario
+	 */
 	public void editaUsuario() {
 		char opcao;
 		String tempEmail, tempSenha;

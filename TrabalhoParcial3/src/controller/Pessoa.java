@@ -1,6 +1,16 @@
 package controller;
 import java.util.Scanner;
 
+/**
+ * 
+ * Classe de Pessoa 
+ * 
+ * @author iagom, marcusmartinsxx
+ * @version 4.00
+ * @since Release 3 da aplicacao
+ *
+ */
+
 public abstract class Pessoa extends Endereco{
 	// Atributos
 	private String nome;
@@ -11,7 +21,19 @@ public abstract class Pessoa extends Endereco{
 	private Usuario usuario;// Para armazenar infos especificas do usuario
 	private Scanner ler = new Scanner(System.in);// Para realizar os metodos
 	private char res;
-	// Metodo Construtor de Pessoa
+	/**
+	 * 
+	 * @param nome - o nome do usuario
+	 * @param cpf - o cpf do usuario
+	 * @param telefone - o telefone do usuario
+	 * @param rg - o rg do usuario
+	 * @param cep - o cep do usuario
+	 * @param estado - o estado do usuario
+	 * @param cidade - a cidade do usuario
+	 * @param logradouro - a rua do usuario
+	 * @param complemento - complemento adicionado ao endereco se necessario
+	 * @param numero - numero do endereco do usuario
+	 */
 	public Pessoa(String nome, String cpf, String telefone, String rg, long cep, String estado, String cidade, String logradouro, String complemento, int numero){
 		super(cep, estado, cidade, logradouro, complemento, numero);
 		this.nome = nome;
@@ -51,6 +73,10 @@ public abstract class Pessoa extends Endereco{
 		this.rg = rg;
 	}
 	// Metodos
+	/**
+	 * Metodo que cadastra uma pessoa no sistema
+	 * @param usuario - o usuario que sera cadastrado
+	 */
 	public void cadastraPessoa(Usuario[] usuario) {
 		System.out.print("\nDigite seu nome:");
 		setNome(ler.nextLine());
@@ -83,6 +109,9 @@ public abstract class Pessoa extends Endereco{
 		setRg(ler.nextLine());
 		//setUsuario(usuario);// Chama funcao que edita o usuario
 	}
+	/**
+	 * Metodo que mostra a pessoa cadastrada
+	 */
 	public void visualizaPessoa() {
 		System.out.println("Nome: " + getNome() + "\nCPF: " + getCpf() + "\nTelefone: " + getTelefone() + "\nEndereco - \nCEP: " + this.endereco.getCEP() + 
 							"\nCidade: " + this.endereco.getCidade() + "\nComplemento: " + this.endereco.getComplemento() + "\nEstado: " + this.endereco.getEstado() +
@@ -91,6 +120,9 @@ public abstract class Pessoa extends Endereco{
 		System.out.println("\nPressione Enter para continuar...");
 		ler.next();
 	}
+	/**
+	 * Metodo que edita a pessoa cadastrada
+	 */
 	public void editaPessoa() {
 		char opcao;
 		

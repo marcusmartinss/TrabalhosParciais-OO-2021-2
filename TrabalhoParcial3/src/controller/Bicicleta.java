@@ -3,16 +3,30 @@ package controller;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * 
+ * Classe de bicicleta 
+ * 
+ * @author iagom, marcusmartinsxx
+ * @version 4.00
+ * @since Release 3 da aplicacao
+ *
+ */
+
 public class Bicicleta {
 	// Atributos
 	private long id;
 	private String marca;
 	private boolean status;
-	
 	private int totalBicicletas =  50; // valor temporario da quantidade de bicicletas
 	Scanner ler = new Scanner(System.in);
 	Random gerador = new Random();
-	// Metodo Construtor de Bicicleta
+	/**
+	 * Metodo Construtor de Bicicleta
+	 * @param id - o id da bicicleta
+	 * @param marca - a marca da bicicleta
+	 * @param status - indica se a bicicleta esta sendo usada ou nao
+	 */
 	public Bicicleta(int id, String marca, boolean status) {
 		super();
 		this.id = id;
@@ -45,6 +59,10 @@ public class Bicicleta {
 	}
 
 	// Metodos
+	/**
+	 * Cadastra uma bicicleta nova no sistema
+	 * @param bicicleta - a bicicleta que sera cadastrada
+	 */
 	public void cadastrar(Bicicleta bicicleta[]) {
 		int i;
 		
@@ -75,6 +93,10 @@ public class Bicicleta {
 		this.marca = tmpString;
 		this.status = true;
 	}
+	/**
+	 * Metodo que deleta uma bicicleta do sistema
+	 * @param bicicleta - a bicicleta que sera deletada
+	 */
 	public void deletar(Bicicleta bicicleta[]) {
 		int i;
 		long tmpID;
@@ -98,6 +120,10 @@ public class Bicicleta {
 			}
 		}
 	}
+	/**
+	 * Metodo que faz a busca de uma bicicleta pelo ID
+	 * @param bicicleta - a bicicleta que sera buscada
+	 */
 	public void buscar(Bicicleta bicicleta[]) {
 		int i;
 		long tmpID;

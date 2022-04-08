@@ -1,6 +1,14 @@
 package controller;
 
-import java.util.Scanner;
+/**
+ * 
+ * Classe de endereco 
+ * 
+ * @author iagom, marcusmartinsxx
+ * @version 4.00
+ * @since Release 3 da aplicacao
+ *
+ */
 
 public class Endereco{
 	// Atributos
@@ -10,9 +18,16 @@ public class Endereco{
 	protected String logradouro;
 	protected String complemento;
 	protected int numero;
-	private Scanner ler = new Scanner(System.in);// Para os metodos
-	private char res;// Para confirmacao ao adicionar complemento
-	// Metodo Construtor de Endereco
+	/** 
+	 * Metodo Construtor de Endereco
+	 * 
+	 * @param cep - o cep pertencente ao endereco
+	 * @param estado - o estado pertencente ao endereco
+	 * @param cidade - a cidade pertencente ao endereco
+	 * @param logradouro - a rua pertencente ao endereco
+	 * @param complemento - o complemento do endereco, se existir
+	 * @param numero - o numero pertecente ao endereco
+	 */
 	public Endereco(long cep, String estado, String cidade, String logradouro, String complemento, int numero) {
 		this.cep = cep;
 		this.estado = estado;
