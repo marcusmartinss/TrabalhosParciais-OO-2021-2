@@ -28,7 +28,7 @@ public class Aluguel {
 	 * @param horaRetirada - o horario que o usuario realiza o a retirada da bici
 	 * @param horaDevolucao - o horario que o usuario realiza o retorno da bici
 	 */
-	public Aluguel(float d, int qtdDisponivelBicicletas, String horaRetirada, String horaDevolucao) {
+	public Aluguel(float valorHora, int qtdDisponivelBicicletas, String horaRetirada, String horaDevolucao) {
 		this.valorHora = valorHora;
 		this.qtdDisponivelBicicletas = qtdDisponivelBicicletas;
 		this.horaRetirada = horaRetirada;

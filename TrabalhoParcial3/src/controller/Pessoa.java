@@ -154,8 +154,10 @@ public abstract class Pessoa extends Endereco{
 		System.out.println("\nPressione Enter para continuar...");
 		ler.nextLine();
 	}
-		
-	public void deletaPessoa() {// Reseta tudo do usuario
+	/**
+	 * Metodo que deleta a pessoa do sistema
+	 */
+	public void deletaPessoa() {
 		setCpf(null);
 		setNome(null);
 		setEndereco(null);

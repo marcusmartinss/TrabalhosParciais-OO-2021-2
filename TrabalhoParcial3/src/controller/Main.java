@@ -22,7 +22,7 @@ public class Main {
 	 * 
 	 * Metodo principal do programa
 	 * 
-	 * @param args
+	 * @param args - string padrao gerada pelo eclipse
 	 * 
 	 */
 	public static void main(String[] args) {
